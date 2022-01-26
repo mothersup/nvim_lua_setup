@@ -43,11 +43,14 @@ o.scrolloff = 8
 
 -- Line length
 o.textwidth = 79
+o.colorcolumn = '80'
 
 -- Shell and split 
+o.hidden = true
 o.splitbelow = true
-o.shellcmdflag = '-command'
-o.shell = "pwsh"
+-- Setting shell to 'pwsh' will not work
+-- It is set to 'cmd' here and 'pwsh' in terminal plugins
+o.shell = 'cmd'
 
 -- Colors 
 o.termguicolors = true
@@ -56,4 +59,4 @@ o.termguicolors = true
 o.wrap = true
 
 -- More lines for error messages
-vim.o.cmdheight = 2
+o.cmdheight = 2

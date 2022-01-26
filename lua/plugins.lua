@@ -18,6 +18,13 @@ vim.api.nvim_exec([[
 return require('packer').startup(function()
     -- Manage packer itself
     use 'wbthomason/packer.nvim'
+	
+    -- Faster startup speed
+    use 'lewis6991/impatient.nvim'
+
+	-- Plenary and pop_up
+	use 'nvim-lua/plenary.nvim'
+	use 'nvim-lua/popup.nvim'
 
     -- Color themes
     use 'joshdick/onedark.vim'
@@ -26,14 +33,17 @@ return require('packer').startup(function()
     vim.o.runtimepath = vim.o.runtimepath .. ',' .. vim.fn.stdpath('data') .. '/site/pack/packer/start/onehalf/vim'
     use {'frenzyexists/aquarium-vim', branch = 'develop'}
 
-    -- LSP, autocomplete, snippets
-    use {
-	'neovim/nvim-lspconfig'
-	-- 'williamboman/nvim-lsp-installer'
-    }
+    -- LSP, installer 
+    use 'neovim/nvim-lspconfig'
+	use 'williamboman/nvim-lsp-installer'
+	use 'jose-elias-alvarez/null-ls.nvim'
+    
+	-- autocomplete and snippets
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
 
@@ -46,7 +56,7 @@ return require('packer').startup(function()
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
      }
 
-    -- Telescope and 
+    -- Telescope and fzf
     use {
         'nvim-telescope/telescope.nvim',
         requires = {'nvim-lua/plenary.nvim'}
@@ -60,6 +70,57 @@ return require('packer').startup(function()
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+	use  'p00f/nvim-ts-rainbow'
+
+	-- Autopairs
+	use 'windwp/nvim-autopairs'
+
+    -- File explorer
+    use {
+       'kyazdani42/nvim-tree.lua',
+        requires = {
+           'kyazdani42/nvim-web-devicons', -- optional, for file icon
+       },
+       config = function() require('nvim-tree').setup {} end
+    }
+	
+	-- Buffers (Tab)
+	use {
+		'akinsho/bufferline.nvim', 
+		requires = 'kyazdani42/nvim-web-devicons'
+	}
+	use 'moll/vim-bbye'
+	
+	-- Remove trailing white spaces
+	-- use "McAuleyPenney/tidy.nvim"
+	
+	-- Surround
+	use {
+		"blackCauldron7/surround.nvim",
+		config = function()
+			require"surround".setup {mappings_style = "sandwich"}
+		end
+	}
+	
+	-- Comments
+	use {
+		'numToStr/Comment.nvim',
+		config = function()
+			require('Comment').setup()
+		end
+	}
+    use {
+        "danymat/neogen",
+        config = function()
+			require('neogen').setup { enabled = true }
+		end,
+		requires = "nvim-treesitter/nvim-treesitter"
+	}
+
+	
+	-- Terminal
+	use 'numToStr/FTerm.nvim'
+	use {"akinsho/toggleterm.nvim"}
    
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

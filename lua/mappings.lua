@@ -1,24 +1,19 @@
 -- File for storing simple keymaps
+local kmap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
--- Map helper
-local map = function(key)
-    -- get the extra options
-    local opts = {noremap = true}
-    for i, v in pairs(key) do
-        if type(i) == 'string' then opts[i] = v end
-    end
+kmap('i', 'jk', '<Esc>', opts)
+kmap('n', '<F2>', ':w<CR>:10sp+te<CR>', opts)
+kmap('i', '<F2>', '<Esc>:w<CR>:10sp+te<CR>', opts)
 
-  -- basic support for buffer-scoped keybindings
-    local buffer = opts.buffer
-    opts.buffer = nil
+-- NvimTree
+kmap('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
 
-    if buffer then
-        vim.api.nvim_buf_set_keymap(0, key[1], key[2], key[3], opts)
-    else
-        vim.api.nvim_set_keymap(key[1], key[2], key[3], opts)
-    end
-end
+-- Bufferline
+kmap('n', '[b' , ':BufferLineCycleNext<CR>', opts)
+kmap('n', 'b]' , ':BufferLineCyclePrev<CR>', opts)
 
-map{'i', 'jk', '<Esc>'}
-map{'n', '<F2>', ':w<CR>:10sp+te<CR>'}
-map{'i', '<F2>', '<Esc>:w<CR>:10sp+te<CR>'}
+kmap('n', '<Leader>nf', ':lua require("neogen").generate()<CR>', opts)
+-- local opts = { noremap = true, silent = true }
+-- vim.api.nvim_set_keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", opts)
+
