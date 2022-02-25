@@ -70,10 +70,10 @@ return require('packer').startup(function()
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-	use  'p00f/nvim-ts-rainbow'
+    use  'p00f/nvim-ts-rainbow'
 
-	-- Autopairs
-	use 'windwp/nvim-autopairs'
+    -- Autopairs
+    use 'windwp/nvim-autopairs'
 
     -- File explorer
     use {
@@ -84,43 +84,49 @@ return require('packer').startup(function()
        config = function() require('nvim-tree').setup {} end
     }
 	
-	-- Buffers (Tab)
-	use {
-		'akinsho/bufferline.nvim', 
-		requires = 'kyazdani42/nvim-web-devicons'
-	}
-	use 'moll/vim-bbye'
+    -- Buffers (Tab)
+    use {
+        'akinsho/bufferline.nvim', 
+        requires = 'kyazdani42/nvim-web-devicons'
+    }
+    use 'moll/vim-bbye'
 	
-	-- Remove trailing white spaces
-	-- use "McAuleyPenney/tidy.nvim"
+    -- Remove trailing white spaces
+    -- use "McAuleyPenney/tidy.nvim"
 	
-	-- Surround
-	use {
-		"blackCauldron7/surround.nvim",
-		config = function()
-			require"surround".setup {mappings_style = "sandwich"}
-		end
-	}
+    -- Surround
+    -- use {
+    --    "blackCauldron7/surround.nvim",
+    --    config = function()
+    --    require"surround".setup {mappings_style = "sandwich"}
+    -- end
+    -- }
+    use { 'ur4ltz/surround.nvim' }
+    -- use { 'tpope/vim-surround' }
+    use { 
+        'echasnovski/mini.nvim', 
+        branch = 'stable' 
+    }
 	
-	-- Comments
-	use {
-		'numToStr/Comment.nvim',
-		config = function()
-			require('Comment').setup()
-		end
-	}
+    -- Comments
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+	end
+    }
     use {
         "danymat/neogen",
         config = function()
-			require('neogen').setup { enabled = true }
-		end,
-		requires = "nvim-treesitter/nvim-treesitter"
-	}
+            require('neogen').setup { enabled = true }
+        end,
+        requires = "nvim-treesitter/nvim-treesitter"
+    }
 
 	
-	-- Terminal
-	use 'numToStr/FTerm.nvim'
-	use {"akinsho/toggleterm.nvim"}
+    -- Terminal
+    use 'numToStr/FTerm.nvim'
+    use {"akinsho/toggleterm.nvim"}
    
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

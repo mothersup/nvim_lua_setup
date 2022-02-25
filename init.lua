@@ -15,8 +15,10 @@ require('treesitter_setup')
 require('autopairs_setup')
 require('bufferline_setup')
 require('comments_setup')
---require('toggleterm_setup')
+-- require('toggleterm_setup')
 require('fterm_setup')
+require('surround_setup')
+-- require('mini_setup')
 
 -- require('feline_setup')
 require('lualine').setup {
