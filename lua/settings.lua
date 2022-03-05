@@ -42,8 +42,13 @@ o.swapfile = false
 o.scrolloff = 8
 
 -- Line length
-o.textwidth = 79
+-- Wrap when line exceed length
+o.textwidth = 0
+o.columns = 79
 o.colorcolumn = '80'
+o.wrap = true
+o.wrapmargin = 0
+o.linebreak = true
 
 -- Shell and split 
 o.hidden = true
@@ -55,8 +60,7 @@ o.shell = 'cmd'
 -- Colors 
 o.termguicolors = true
 
--- Wrap when line exceed length
-o.wrap = true
+
 
 -- More lines for error messages
 o.cmdheight = 2
