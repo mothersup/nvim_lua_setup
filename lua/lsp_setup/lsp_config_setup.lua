@@ -8,12 +8,12 @@ M = {}
 -- Extra ^M may be generated after formatting
 -- %s used to remove ^M
 function _G.formatting() 
-	vim.lsp.buf.formatting_sync()
-	local status_ok, _ = pcall(vim.cmd [[ silent! %s/\r//g ]])
-	if not status_ok then
-		print('No newline character introduced')
-		return
-	end
+    vim.lsp.buf.formatting_sync()
+    local status_ok, _ = pcall(vim.cmd [[ silent! %s/\r//g ]])
+        if not status_ok then
+            print('No newline character introduced')
+            return
+        end
 end
 
 local lsp_keymaps = function(client, bufnr)
@@ -28,8 +28,8 @@ local lsp_keymaps = function(client, bufnr)
     bkmap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     bkmap(bufnr, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     bkmap(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-    vim.cmd([[ command! Format execute 'lua formatting()' ]])
-	bkmap(bufnr, 'n', '<leader>f', '<cmd>Format<CR>', opts)
+    -- vim.cmd([[ command! Format execute 'lua formatting()' ]])
+    bkmap(bufnr, 'n', '<leader>f', '<cmd>lua formatting()<CR>', opts)
 end
 	
 M.on_attach = function(client, bufnr)

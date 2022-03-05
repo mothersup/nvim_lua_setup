@@ -3,6 +3,7 @@ local kmap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 kmap('i', 'jk', '<Esc>', opts)
+kmap('n', '<Esc><Esc>', ':noh<CR>', opts)
 kmap('n', '<F2>', ':w<CR>:10sp+te<CR>', opts)
 kmap('i', '<F2>', '<Esc>:w<CR>:10sp+te<CR>', opts)
 
