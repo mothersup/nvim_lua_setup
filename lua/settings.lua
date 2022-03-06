@@ -43,7 +43,7 @@ o.scrolloff = 8
 
 -- Line length
 -- Wrap when line exceed length
-o.textwidth = 0
+o.textwidth = 79
 o.columns = 79
 o.colorcolumn = '80'
 o.wrap = true

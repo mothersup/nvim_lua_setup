@@ -1,6 +1,7 @@
 -- Set language to Eng
 vim.cmd([[language en_US]])
-vim.cmd([[colorscheme onedark]])
+-- vim.cmd([[colorscheme onedark]])
+vim.cmd([[ colorscheme kanagawa]])
 
 -- require('impatient')
 require('plugins')
@@ -19,11 +20,13 @@ require('comments_setup')
 require('fterm_setup')
 require('surround_setup')
 -- require('mini_setup')
-
+require('range_highlight_setup')
+require('colorizor_setup')
 -- require('feline_setup')
 require('lualine').setup {
-   options = {theme = 'oceanicnext'}
+   options = {theme = 'auto'}
 }
+-- require('glow_setup')
 
 
 -- require('nvim-web-devicons').setup()

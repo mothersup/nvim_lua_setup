@@ -25,18 +25,22 @@ cmp.setup({
         { name = 'buffer'},
         { name = 'path' }
     },
+	sorting = {
+		comparators = {
+			cmp.config.compare.offset,
+			cmp.config.compare.exact,
+			cmp.config.compare.score,
+			require('cmp-under-comparator').under,
+			cmp.config.compare.kind,
+			cmp.config.compare.sort_text,
+			cmp.config.compare.length,
+			cmp.config.compare.order,
+		}
+	}
 })
 
 cmp.setup.cmdline('/', {
 	sources = {
 		{ name = 'buffer' }
 	}
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-	sources = cmp.config.sources({
-		{ name = 'path' },
-		{ name = 'cmdline' }
-	})
 })

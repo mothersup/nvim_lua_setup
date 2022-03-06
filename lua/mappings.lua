@@ -18,3 +18,5 @@ kmap('n', '<Leader>nf', ':lua require("neogen").generate()<CR>', opts)
 -- local opts = { noremap = true, silent = true }
 -- vim.api.nvim_set_keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", opts)
 
+-- Markdown-preview
+kmap('n', '<Leader>mp', '<cmd>MarkdownPreview<CR>', opts)
