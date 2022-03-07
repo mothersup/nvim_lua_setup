@@ -1,9 +1,14 @@
 -- Set language to Eng
 vim.cmd([[language en_US]])
--- vim.cmd([[colorscheme onedark]])
-vim.cmd([[ colorscheme kanagawa]])
+local col_sch = "kanagawa"
 
--- require('impatient')
+local col_sch_ok_status, _ = pcall(require, col_sch)
+if col_sch_ok_status then
+    vim.cmd("colorscheme " .. col_sch)
+end 
+
+
+require('impatient')
 require('plugins')
 
 require('settings')
@@ -26,6 +31,7 @@ require('colorizor_setup')
 require('lualine').setup {
    options = {theme = 'auto'}
 }
+require('startup_setup')
 -- require('glow_setup')
 
 
