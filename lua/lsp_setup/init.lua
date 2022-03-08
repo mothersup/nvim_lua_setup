@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 require('lsp_setup.lsp_installer_setup')
--- require('lsp_setup.null_ls_setup')
+require('lsp_setup.null_ls_setup')
 require('lsp_setup.trouble_setup')
 require('lsp_setup.nvim_lightbulb_setup')
 require('lsp_setup.lsp_signature_setup')
