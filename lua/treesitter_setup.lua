@@ -18,7 +18,19 @@ ts.setup {
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false,
     },
+	
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "gnn",
+			node_incremental = "grn",
+			scope_incremental = "grc",
+			node_decremental = "grm",
+		},
+	},
+  
 	indent = { enable = true },
+	
 	rainbow = {
 		enable = true,
 		-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for

@@ -1,10 +1,14 @@
 local npairs = require('nvim-autopairs')
 
-
-
 npairs.setup {
 	check_ts = true,
-	fast_wrap = {}
+	fast_wrap = {},
+	disable_filetype = { 
+		'TelescopePrompt' , 
+		'guihua', 
+		'guihua_rust', 
+		'clap_input' 
+	},
 }
     
 

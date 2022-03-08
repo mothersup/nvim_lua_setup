@@ -38,6 +38,7 @@ return require('packer').startup({
         vim.o.runtimepath = vim.o.runtimepath .. ',' .. vim.fn.stdpath('data') .. '/site/pack/packer/start/onehalf/vim'
         use {'frenzyexists/aquarium-vim', branch = 'develop'}
         use 'rebelot/kanagawa.nvim'
+		use 'themercorp/themer.lua'
 
         -- LSP, installer 
         use 'neovim/nvim-lspconfig'
@@ -57,15 +58,22 @@ return require('packer').startup({
             as = 'lsp_lines.nvim'
         }
         use 'ray-x/lsp_signature.nvim'
-        --[[
+		use 'rmagatti/goto-preview'
+		use 'simrat39/symbols-outline.nvim'
+		--[[
         use {
             'ray-x/navigator.lua', 
             requires = {
                 'ray-x/guihua.lua', 
                 run = 'cd lua/fzy && make'
-            }
+            }, 
+			config = function()
+				require('navigator').setup({
+					lsp_installer = true,
+				})
+			end,
         }
-        --]]
+		--]]
 
         
         -- autocomplete and snippets
@@ -115,6 +123,10 @@ return require('packer').startup({
         }
         use 'nvim-treesitter/nvim-treesitter-refactor'
         use 'p00f/nvim-ts-rainbow'
+		
+		-- Show blank lines and spaces
+		use 'lukas-reineke/indent-blankline.nvim'
+
 
         -- Autopairs
         use 'windwp/nvim-autopairs'
@@ -133,8 +145,17 @@ return require('packer').startup({
             'akinsho/bufferline.nvim', 
             requires = 'kyazdani42/nvim-web-devicons'
         }
-        use 'moll/vim-bbye'
-        
+        -- use 'moll/vim-bbye'
+		use 'famiu/bufdelete.nvim'
+		
+		-- better jk
+		use {
+			'max397574/better-escape.nvim',
+			config = function()
+				require("better_escape").setup()
+			end,
+		}
+	        
         -- Remove trailing white spaces
         -- use "McAuleyPenney/tidy.nvim"
         
@@ -163,13 +184,13 @@ return require('packer').startup({
             end
         }
         use {
-            "danymat/neogen",
+            'danymat/neogen',
             config = function()
                 require('neogen').setup { enabled = true }
             end,
-            requires = "nvim-treesitter/nvim-treesitter"
+            requires = 'nvim-treesitter/nvim-treesitter'
         }
-
+		
         -- Terminal
         use 'numToStr/FTerm.nvim'
         use 'akinsho/toggleterm.nvim'
@@ -178,6 +199,7 @@ return require('packer').startup({
         use 'norcalli/nvim-colorizer.lua'
         use 'winston0410/cmd-parser.nvim'
         use 'winston0410/range-highlight.nvim'
+		use 'rktjmp/lush.nvim'
         
         -- Language specific
         

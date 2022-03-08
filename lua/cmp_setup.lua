@@ -78,3 +78,13 @@ cmp.setup.cmdline('/', {
 		{ name = 'buffer' }
 	}
 })
+
+--[[
+if vim.o.ft == 'clap_input' and vim.o.ft == 'guihua' and vim.o.ft == 'guihua_rust' then
+	cmp.setup.buffer({ 
+		completion = {
+			enable = false
+		} 
+	})
+end
+--]]

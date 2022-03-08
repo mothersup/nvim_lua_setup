@@ -13,7 +13,7 @@ o.mouse = 'a'
 o.syntax = 'on'
 
 -- Autocomplete related 
-o.completeopt = "menuone,noselect,"
+o.completeopt = 'menuone,noselect,'
 
 -- Tap and indent related
 o.tabstop = 4
@@ -43,8 +43,8 @@ o.scrolloff = 8
 
 -- Line length
 -- Wrap when line exceed length
-o.textwidth = 79
-o.columns = 79
+o.textwidth = 80
+-- o.columns = 79
 o.colorcolumn = '80'
 o.wrap = true
 o.wrapmargin = 0

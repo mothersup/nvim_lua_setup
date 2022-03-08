@@ -30,11 +30,14 @@ kmap('n', '<Leader>fb', '<cmd>Telescope buffers<CR>', opts)
 kmap('n', '<Leader>fh', '<cmd>Telescope help_tags<CR>', opts)
 
 -- Trouble 
-kmap('n', '<Leader>xx', '<cmd>TroubleToggle<cr>', opts)
-kmap('n', '<Leader>xw', '<cmd>TroubleToggle workspace_diagnostics<cr>', opts)
-kmap('n', '<Leader>xd', '<cmd>TroubleToggle document_diagnostics<cr>', opts)
+kmap('n', '<Leader>xx', '<cmd>TroubleToggle<CR>', opts)
+kmap('n', '<Leader>xw', '<cmd>TroubleToggle workspace_diagnostics<CR>', opts)
+kmap('n', '<Leader>xd', '<cmd>TroubleToggle document_diagnostics<CR>', opts)
 --[[
 kmap('n', '<Leader>xl', '<cmd>TroubleToggle loclist<cr>', opts )
 kmap('n', '<Leader>xq', '<cmd>TroubleToggle quickfix<cr>', opts)
 kmap('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', opts)
 --]]
+
+-- symbols-outline
+kmap('n', '<Leader>so', ':SymbolsOutline<CR>', opts)
