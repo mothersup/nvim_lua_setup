@@ -1,6 +1,6 @@
 -- Check if packer is installed
 local execute = vim.api.nvim_command
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
@@ -43,11 +43,30 @@ return require('packer').startup({
         use 'neovim/nvim-lspconfig'
         use 'williamboman/nvim-lsp-installer'
         use 'jose-elias-alvarez/null-ls.nvim'
+
+        
+        -- LSP related
+        use {
+            'folke/trouble.nvim',
+            requires = 'kyazdani42/nvim-web-devicons'
+        }
+        use 'kosayoda/nvim-lightbulb'
         use 'j-hui/fidget.nvim'
         use {
             'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
             as = 'lsp_lines.nvim'
         }
+        use 'ray-x/lsp_signature.nvim'
+        --[[
+        use {
+            'ray-x/navigator.lua', 
+            requires = {
+                'ray-x/guihua.lua', 
+                run = 'cd lua/fzy && make'
+            }
+        }
+        --]]
+
         
         -- autocomplete and snippets
         use 'hrsh7th/nvim-cmp'
@@ -58,6 +77,9 @@ return require('packer').startup({
         use 'hrsh7th/cmp-vsnip'
         use 'hrsh7th/vim-vsnip'
         use 'lukas-reineke/cmp-under-comparator'
+        use 'hrsh7th/cmp-nvim-lsp-signature-help'
+        use 'onsails/lspkind-nvim'
+
 
         -- Status line
         use 'famiu/feline.nvim'
@@ -71,7 +93,8 @@ return require('packer').startup({
         use {
             'startup-nvim/startup.nvim',
             requires = {
-                'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim'
+                'nvim-telescope/telescope.nvim', 
+                'nvim-lua/plenary.nvim'
             }
         }
 
@@ -80,14 +103,18 @@ return require('packer').startup({
             'nvim-telescope/telescope.nvim',
             requires = {'nvim-lua/plenary.nvim'}
         }
-        use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+        use {
+            'nvim-telescope/telescope-fzf-native.nvim', 
+            run = 'make'
+        }
 
         -- Treesitter
         use {
             'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate'
         }
-        use  'p00f/nvim-ts-rainbow'
+        use 'nvim-treesitter/nvim-treesitter-refactor'
+        use 'p00f/nvim-ts-rainbow'
 
         -- Autopairs
         use 'windwp/nvim-autopairs'

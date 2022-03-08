@@ -11,9 +11,7 @@ lsp_installer.on_server_ready(function(server)
     }
 	
 	if server.name == 'zeta_note' then
-		local temp_path = os.getenv('TEMP')
-		local zeta_note_path = string.sub(temp_path, 1, -6)
-		opts.cmd = {zeta_note_path .. [[\nvim-data\lsp_servers\zeta_note\zeta-note.exe]]}
+		opts.cmd = { vim.fn.stdpath('data') .. [[/lsp_servers/zeta_note/zeta-note.exe]] }
 	end
 	
     -- (optional) Customize the options passed to the server

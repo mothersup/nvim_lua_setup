@@ -29,7 +29,7 @@ local lsp_keymaps = function(client, bufnr)
     bkmap(bufnr, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     bkmap(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     -- vim.cmd([[ command! Format execute 'lua formatting()' ]])
-    bkmap(bufnr, 'n', '<leader>f', '<cmd>lua formatting()<CR>', opts)
+    bkmap(bufnr, 'n', '<leader>lf', '<cmd>lua formatting()<CR>', opts)
 end
 	
 M.on_attach = function(client, bufnr)
