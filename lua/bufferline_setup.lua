@@ -3,7 +3,7 @@ local bufferline = require('bufferline')
 bufferline.setup {
 	options = {
 		numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-		--- @deprecated, please specify numbers as a function to customize the styling
+		--- @d  eprecated, please specify numbers as a function to customize the styling
 		close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
 		right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
 		left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
@@ -55,7 +55,10 @@ bufferline.setup {
 		-- 		return true
 		-- 		end
 		-- end,
-		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+		offsets = { 
+            { filetype = 'NvimTree', text = 'File Explorer', padding = 1 },
+            { filetype = 'Outline', text = 'Outline', padding = 1 } 
+        },
 		show_buffer_icons = true, -- disable filetype icons for buffers
 		show_buffer_close_icons = true,
 		show_close_icon = true,

@@ -60,7 +60,8 @@ o.shell = 'cmd'
 -- Colors 
 o.termguicolors = true
 
-
+o.cursorline = true
+o.cursorcolumn = true
 
 -- More lines for error messages
 o.cmdheight = 2
