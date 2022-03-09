@@ -1,38 +1,51 @@
 -- Set language to Eng
 vim.cmd([[language en_US]])
-local col_sch = "kanagawa"
 
-local col_sch_ok_status, _ = pcall(require, col_sch)
-if col_sch_ok_status then
-    vim.cmd("colorscheme " .. col_sch)
-end 
-
+require('settings')
 
 require('impatient')
 require('plugins')
 
-require('settings')
-require('mappings')
+require('startup_setup')
+require('treesitter_setup')
+require('telescope_setup')
 require('lsp_setup')
 require('cmp_setup')
-require('telescope_setup')
-require('vimtex_setup')
-require('treesitter_setup')
 require('autopairs_setup')
+
 require('bufferline_setup')
 require('comments_setup')
--- require('toggleterm_setup')
 require('fterm_setup')
 require('surround_setup')
--- require('mini_setup')
 require('range_highlight_setup')
+
 require('colorizor_setup')
--- require('feline_setup')
+
 require('lualine').setup {
    options = {theme = 'auto'}
 }
-require('startup_setup')
+require('goto_preview_setup')
+-- require('navigator_setup')
+
+require('vimtex_setup')
+
+-- require('toggleterm_setup')
+-- require('mini_setup')
+-- require('feline_setup')
 -- require('glow_setup')
 
+require('mappings')
+require('better_esc_setup')
 
 -- require('nvim-web-devicons').setup()
+
+require('kanagawa').setup({
+	transparent = true
+})
+
+vim.cmd [[colorscheme kanagawa]]
+vim.cmd [[highlight ColorColumn ctermbg=lightgrey guibg=lightgrey]]
+-- require('color_schemes_setup')
+
+-- goes after color schemes
+require('indent_blank_setup')
