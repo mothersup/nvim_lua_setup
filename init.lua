@@ -22,14 +22,14 @@ require('status_line_setup')
 require('goto_preview_setup')
 -- require('symbol_outline_setup')
 require('nvim_tree_setup')
-
+require('shade_setup')
 require('color_schemes_setup')
 require('indent_blank_setup')
 
 require('vimtex_setup')
 
 require('mappings')
--- require('shade_setup')
+
 require('better_esc_setup')
 
 -- require('zen_mode_setup')

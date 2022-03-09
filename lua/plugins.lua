@@ -148,12 +148,9 @@ return require('packer').startup({
         use 'sunjon/shade.nvim'
         -- use 'moll/vim-bbye'
 		
-		
 		-- Better jk
 		use 'max397574/better-escape.nvim'
-        
-        
-	        
+ 
         -- Remove trailing white spaces
         -- use 'McAuleyPenney/tidy.nvim'
 		-- use 'folke/zen-mode.nvim'
