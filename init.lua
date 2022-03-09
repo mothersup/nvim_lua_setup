@@ -20,7 +20,7 @@ require('fterm_setup')
 require('colorizor_setup')
 require('status_line_setup')
 require('goto_preview_setup')
-require('symbol_outline_setup')
+-- require('symbol_outline_setup')
 require('nvim_tree_setup')
 
 require('color_schemes_setup')

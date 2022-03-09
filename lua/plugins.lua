@@ -43,9 +43,7 @@ return require('packer').startup({
         -- LSP, installer 
         use 'neovim/nvim-lspconfig'
         use 'williamboman/nvim-lsp-installer'
-        use 'jose-elias-alvarez/null-ls.nvim'
 
-        
         -- LSP related
         use {
             'folke/trouble.nvim',
@@ -53,14 +51,15 @@ return require('packer').startup({
         }
         use 'kosayoda/nvim-lightbulb'
         use 'j-hui/fidget.nvim'
+		use 'jose-elias-alvarez/null-ls.nvim'
+		use 'ray-x/lsp_signature.nvim'
+		use 'rmagatti/goto-preview'
+		--[[
         use {
             'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
             as = 'lsp_lines.nvim'
         }
-        use 'ray-x/lsp_signature.nvim'
-		use 'rmagatti/goto-preview'
 		use 'simrat39/symbols-outline.nvim'
-		--[[
         use {
             'ray-x/navigator.lua', 
             requires = {
@@ -74,7 +73,6 @@ return require('packer').startup({
 			end,
         }
 		--]]
-
         
         -- autocomplete and snippets
         use 'hrsh7th/nvim-cmp'
@@ -85,15 +83,24 @@ return require('packer').startup({
         use 'hrsh7th/cmp-vsnip'
         use 'hrsh7th/vim-vsnip'
         use 'lukas-reineke/cmp-under-comparator'
-        use 'hrsh7th/cmp-nvim-lsp-signature-help'
-        use 'onsails/lspkind-nvim'
-
+		use 'onsails/lspkind-nvim'
+        -- use 'hrsh7th/cmp-nvim-lsp-signature-help'
 
         -- Status line
-        use 'famiu/feline.nvim'
         use {
             'hoob3rt/lualine.nvim',
             requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        }        
+		-- use 'famiu/feline.nvim'
+
+        -- Telescope and fzf
+        use {
+            'nvim-telescope/telescope.nvim',
+            requires = {'nvim-lua/plenary.nvim'}
+        }
+        use {
+            'nvim-telescope/telescope-fzf-native.nvim', 
+            run = 'make'
         }
         
         -- Startup
@@ -104,16 +111,6 @@ return require('packer').startup({
                 'nvim-telescope/telescope.nvim', 
                 'nvim-lua/plenary.nvim'
             }
-        }
-
-        -- Telescope and fzf
-        use {
-            'nvim-telescope/telescope.nvim',
-            requires = {'nvim-lua/plenary.nvim'}
-        }
-        use {
-            'nvim-telescope/telescope-fzf-native.nvim', 
-            run = 'make'
         }
 
         -- Treesitter
@@ -143,26 +140,26 @@ return require('packer').startup({
             'akinsho/bufferline.nvim', 
             requires = 'kyazdani42/nvim-web-devicons'
         }
-        
+        use 'famiu/bufdelete.nvim'
         use {
             'luukvbaal/stabilize.nvim',
             config = function() require("stabilize").setup() end
         }
         use 'sunjon/shade.nvim'
-
-        
         -- use 'moll/vim-bbye'
-		use 'famiu/bufdelete.nvim'
 		
-		-- better jk
+		
+		-- Better jk
 		use 'max397574/better-escape.nvim'
         
-        use 'folke/zen-mode.nvim'
+        
 	        
         -- Remove trailing white spaces
-        -- use "McAuleyPenney/tidy.nvim"
+        -- use 'McAuleyPenney/tidy.nvim'
+		-- use 'folke/zen-mode.nvim'
         
         -- Surround
+		use { 'ur4ltz/surround.nvim' }
         -- blackCauldron7 is removed, use 'ul4ltz's distribution
         --[[
         use {
@@ -172,31 +169,27 @@ return require('packer').startup({
         end
         }
         --]]
-        use { 'ur4ltz/surround.nvim' }
         -- use { 'tpope/vim-surround' }
+		--[[
         use { 
             'echasnovski/mini.nvim', 
             branch = 'stable' 
         }
+		--]]
         
         -- Comments
-        use {
-            'numToStr/Comment.nvim',
-            config = function()
-                require('Comment').setup()
-            end
-        }
+        use 'numToStr/Comment.nvim'
         use {
             'danymat/neogen',
-            config = function()
-                require('neogen').setup { enabled = true }
-            end,
             requires = 'nvim-treesitter/nvim-treesitter'
         }
 		
+		-- lazygit
+		use 'kdheepak/lazygit.nvim'
+		
         -- Terminal
         use 'numToStr/FTerm.nvim'
-        use 'akinsho/toggleterm.nvim'
+        -- use 'akinsho/toggleterm.nvim'
         
         -- Color
         use 'norcalli/nvim-colorizer.lua'

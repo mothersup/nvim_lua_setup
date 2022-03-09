@@ -53,3 +53,6 @@ kmap('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', opts)
 
 -- symbols-outline
 kmap('n', '<C-J>', ':SymbolsOutline<CR>', opts)
+
+-- lazygit
+kmap('n', '<Leader>gg', '<cmd>LazyGit<CR>', opts)
