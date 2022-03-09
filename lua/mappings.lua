@@ -40,4 +40,4 @@ kmap('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', opts)
 --]]
 
 -- symbols-outline
-kmap('n', '<Leader>so', ':SymbolsOutline<CR>', opts)
+kmap('n', '<C-J>', ':SymbolsOutline<CR>', opts)

@@ -137,7 +137,6 @@ return require('packer').startup({
             requires = {
                'kyazdani42/nvim-web-devicons', -- optional, for file icon
            },
-           config = function() require('nvim-tree').setup {} end
         }
         
         -- Buffers (Tab)

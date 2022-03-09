@@ -1,0 +1,1 @@
+require('status_line_setup.lualine_setup')
