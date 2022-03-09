@@ -1,7 +1,1 @@
-<<<<<<< HEAD
 some text here
-||||||| b23566e
-some text
-=======
-some text not here
->>>>>>> 543e65b726c17fda96ac819f6733005d8585fd27
