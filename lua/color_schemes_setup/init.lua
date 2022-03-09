@@ -1,10 +1,7 @@
 local col_sch = 'kanagawa'
 
-local col_sch_ok_status, _ = pcall(require, col_sch)
-if col_sch_ok_status then
-	require('kanagawa').setup({
-		transparent = true
-	})
+-- Packer rtp does not work, manually append onehalf path
+-- vim.o.runtimepath = vim.o.runtimepath .. ',' .. vim.fn.stdpath('data') .. '/site/pack/packer/start/onehalf/vim'
 
-    vim.cmd('colorscheme ' .. col_sch)
-end 
+require('color_schemes_setup.color_schemes.' .. col_sch .. '_setup')
+vim.cmd [[highlight ColorColumn guibg=White]]

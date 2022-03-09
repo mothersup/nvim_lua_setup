@@ -33,9 +33,9 @@ return require('packer').startup({
 
         -- Color themes
         use 'joshdick/onedark.vim'
+        use 'navarasu/onedark.nvim'
         use {'sonph/onehalf', rtp = 'vim/'}
-        -- Packer rtp does not work, manually append onehalf path
-        vim.o.runtimepath = vim.o.runtimepath .. ',' .. vim.fn.stdpath('data') .. '/site/pack/packer/start/onehalf/vim'
+        
         use {'frenzyexists/aquarium-vim', branch = 'develop'}
         use 'rebelot/kanagawa.nvim'
 		use 'themercorp/themer.lua'
@@ -127,7 +127,6 @@ return require('packer').startup({
 		-- Show blank lines and spaces
 		use 'lukas-reineke/indent-blankline.nvim'
 
-
         -- Autopairs
         use 'windwp/nvim-autopairs'
 
@@ -144,16 +143,21 @@ return require('packer').startup({
             'akinsho/bufferline.nvim', 
             requires = 'kyazdani42/nvim-web-devicons'
         }
+        
+        use {
+            'luukvbaal/stabilize.nvim',
+            config = function() require("stabilize").setup() end
+        }
+        use 'sunjon/shade.nvim'
+
+        
         -- use 'moll/vim-bbye'
 		use 'famiu/bufdelete.nvim'
 		
 		-- better jk
-		use {
-			'max397574/better-escape.nvim',
-			config = function()
-				require("better_escape").setup()
-			end,
-		}
+		use 'max397574/better-escape.nvim'
+        
+        use 'folke/zen-mode.nvim'
 	        
         -- Remove trailing white spaces
         -- use "McAuleyPenney/tidy.nvim"

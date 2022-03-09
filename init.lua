@@ -29,7 +29,10 @@ require('indent_blank_setup')
 require('vimtex_setup')
 
 require('mappings')
+-- require('shade_setup')
 require('better_esc_setup')
+
+-- require('zen_mode_setup')
 -- require('nvim-web-devicons').setup()
 -- require('mini_setup')
 -- require('glow_setup')
