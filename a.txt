@@ -1,7 +1,1 @@
-<<<<<<< HEAD
-some text something new
-||||||| b61d2f8
-some text 
-=======
-some text here
->>>>>>> refs/remotes/origin/master
+some text
