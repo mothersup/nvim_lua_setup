@@ -20,40 +20,53 @@ return require('packer').startup({
         -- Manage packer itself
         use 'wbthomason/packer.nvim'
         
-        -- Faster startup speed
-        use 'lewis6991/impatient.nvim'
-
         -- Plenary and pop_up
         use 'nvim-lua/plenary.nvim'
         use 'nvim-lua/popup.nvim'
         
         -- Icons
-        use 'ryanoasis/vim-devicons'
+        -- use 'ryanoasis/vim-devicons'
         use 'kyazdani42/nvim-web-devicons'
 
         -- Color themes
-        use 'joshdick/onedark.vim'
         use 'navarasu/onedark.nvim'
-        use {'sonph/onehalf', rtp = 'vim/'}
-        
-        use {'frenzyexists/aquarium-vim', branch = 'develop'}
+        use {
+			'frenzyexists/aquarium-vim', 
+			branch = 'develop'
+		}
         use 'rebelot/kanagawa.nvim'
 		use 'themercorp/themer.lua'
+		-- use 'joshdick/onedark.vim'
+        -- use {'sonph/onehalf', rtp = 'vim/'}
+		
+        -- Telescope and fzf
+        use {
+            'nvim-telescope/telescope.nvim',
+            requires = {
+				{ 'nvim-lua/plenary.nvim' },
+				{ 'kdheepak/lazygit.nvim' }
+			}
+        }
+        use {
+            'nvim-telescope/telescope-fzf-native.nvim', 
+            run = 'make'
+        }
 
         -- LSP, installer 
         use 'neovim/nvim-lspconfig'
         use 'williamboman/nvim-lsp-installer'
 
         -- LSP related
+		use 'jose-elias-alvarez/null-ls.nvim'
         use {
             'folke/trouble.nvim',
             requires = 'kyazdani42/nvim-web-devicons'
         }
         use 'kosayoda/nvim-lightbulb'
         use 'j-hui/fidget.nvim'
-		use 'jose-elias-alvarez/null-ls.nvim'
 		use 'ray-x/lsp_signature.nvim'
 		use 'rmagatti/goto-preview'
+		use 'onsails/lspkind-nvim'
 		--[[
         use {
             'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
@@ -83,35 +96,7 @@ return require('packer').startup({
         use 'hrsh7th/cmp-vsnip'
         use 'hrsh7th/vim-vsnip'
         use 'lukas-reineke/cmp-under-comparator'
-		use 'onsails/lspkind-nvim'
         -- use 'hrsh7th/cmp-nvim-lsp-signature-help'
-
-        -- Status line
-        use {
-            'hoob3rt/lualine.nvim',
-            requires = {'kyazdani42/nvim-web-devicons', opt = true}
-        }        
-		-- use 'famiu/feline.nvim'
-
-        -- Telescope and fzf
-        use {
-            'nvim-telescope/telescope.nvim',
-            requires = {'nvim-lua/plenary.nvim'}
-        }
-        use {
-            'nvim-telescope/telescope-fzf-native.nvim', 
-            run = 'make'
-        }
-        
-        -- Startup
-        use 'henriquehbr/nvim-startup.lua'
-        use {
-            'startup-nvim/startup.nvim',
-            requires = {
-                'nvim-telescope/telescope.nvim', 
-                'nvim-lua/plenary.nvim'
-            }
-        }
 
         -- Treesitter
         use {
@@ -120,43 +105,31 @@ return require('packer').startup({
         }
         use 'nvim-treesitter/nvim-treesitter-refactor'
         use 'p00f/nvim-ts-rainbow'
-		
-		-- Show blank lines and spaces
-		use 'lukas-reineke/indent-blankline.nvim'
 
-        -- Autopairs
-        use 'windwp/nvim-autopairs'
-
-        -- File explorer
+        -- Status line
         use {
-           'kyazdani42/nvim-tree.lua',
+            'hoob3rt/lualine.nvim',
+            requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        }
+		-- use 'famiu/feline.nvim'
+
+        -- Startup
+        -- Faster startup speed
+        use 'lewis6991/impatient.nvim'
+        use {
+            'startup-nvim/startup.nvim',
             requires = {
-               'kyazdani42/nvim-web-devicons', -- optional, for file icon
-           },
+                'nvim-telescope/telescope.nvim', 
+                'nvim-lua/plenary.nvim'
+            }
         }
-        
-        -- Buffers (Tab)
-        use {
-            'akinsho/bufferline.nvim', 
-            requires = 'kyazdani42/nvim-web-devicons'
-        }
-        use 'famiu/bufdelete.nvim'
-        use {
-            'luukvbaal/stabilize.nvim',
-            config = function() require("stabilize").setup() end
-        }
-        use 'sunjon/shade.nvim'
-        -- use 'moll/vim-bbye'
-		
-		-- Better jk
+        -- use 'henriquehbr/nvim-startup.lua'
+
+		-- Editing
+		use 'lukas-reineke/indent-blankline.nvim'
+        use 'windwp/nvim-autopairs'
 		use 'max397574/better-escape.nvim'
- 
-        -- Remove trailing white spaces
-        -- use 'McAuleyPenney/tidy.nvim'
-		-- use 'folke/zen-mode.nvim'
-        
-        -- Surround
-		use { 'ur4ltz/surround.nvim' }
+		use 'ur4ltz/surround.nvim'
         -- blackCauldron7 is removed, use 'ul4ltz's distribution
         --[[
         use {
@@ -173,6 +146,26 @@ return require('packer').startup({
             branch = 'stable' 
         }
 		--]]
+        -- use 'McAuleyPenney/tidy.nvim'
+		-- use 'folke/zen-mode.nvim'
+		
+        -- File explorer
+        use {
+           'kyazdani42/nvim-tree.lua',
+            requires = {
+               'kyazdani42/nvim-web-devicons', -- optional, for file icon
+           },
+        }
+        
+        -- Buffers (Tab)
+        use {
+            'akinsho/bufferline.nvim', 
+            requires = 'kyazdani42/nvim-web-devicons'
+        }
+        use 'famiu/bufdelete.nvim'
+        use 'luukvbaal/stabilize.nvim'
+        use 'sunjon/shade.nvim'
+        -- use 'moll/vim-bbye'
         
         -- Comments
         use 'numToStr/Comment.nvim'
@@ -193,6 +186,7 @@ return require('packer').startup({
         use 'winston0410/cmd-parser.nvim'
         use 'winston0410/range-highlight.nvim'
 		use 'rktjmp/lush.nvim'
+		use 'muchzill4/doubletrouble'
         
         -- Language specific
         

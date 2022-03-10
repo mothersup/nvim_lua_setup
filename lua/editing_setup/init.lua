@@ -1,0 +1,5 @@
+require('editing_setup.autopairs_setup')
+require('editing_setup.better_esc_setup')
+require('editing_setup.indent_blank_setup')
+require('editing_setup.range_highlight_setup')
+require('editing_setup.surround_setup')
