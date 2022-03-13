@@ -1,8 +1,14 @@
 local ts = require('nvim-treesitter.configs')
 
+ensure_installed_langs = {
+	'python', 
+	'latex',
+	'lua'
+}
+
 ts.setup {
     -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    ensure_installed = "maintained",
+    ensure_installed = ensure_installed_langs,
     -- install languages synchronously (only applied to `ensure_installed`)
     sync_install = false, 
     -- List of parsers to ignore installing

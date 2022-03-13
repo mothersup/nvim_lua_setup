@@ -1,4 +1,5 @@
 require('colors_setup.colorizor_setup')
+require('colors_setup.transparent_setup')
 
 local col_sch = 'kanagawa'
 

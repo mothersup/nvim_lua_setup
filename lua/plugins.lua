@@ -28,14 +28,6 @@ return require('packer').startup({
         -- use 'ryanoasis/vim-devicons'
         use 'kyazdani42/nvim-web-devicons'
 
-        -- Color themes
-        use 'navarasu/onedark.nvim'
-        use {
-			'frenzyexists/aquarium-vim', 
-			branch = 'develop'
-		}
-        use 'rebelot/kanagawa.nvim'
-		use 'themercorp/themer.lua'
 		-- use 'joshdick/onedark.vim'
         -- use {'sonph/onehalf', rtp = 'vim/'}
 		
@@ -130,6 +122,7 @@ return require('packer').startup({
         use 'windwp/nvim-autopairs'
 		use 'max397574/better-escape.nvim'
 		use 'ur4ltz/surround.nvim'
+		use 'yamatsum/nvim-cursorline'
         -- blackCauldron7 is removed, use 'ul4ltz's distribution
         --[[
         use {
@@ -181,13 +174,24 @@ return require('packer').startup({
         use 'numToStr/FTerm.nvim'
         -- use 'akinsho/toggleterm.nvim'
         
-        -- Color
-        use 'norcalli/nvim-colorizer.lua'
-        use 'winston0410/cmd-parser.nvim'
-        use 'winston0410/range-highlight.nvim'
-		use 'rktjmp/lush.nvim'
+        -- Color themes
+        use 'navarasu/onedark.nvim'
+        use {
+			'frenzyexists/aquarium-vim', 
+			branch = 'develop'
+		}
+		use 'rebelot/kanagawa.nvim'
 		use 'muchzill4/doubletrouble'
+		
+		-- Colors related
+		use 'rktjmp/lush.nvim'
+        use 'norcalli/nvim-colorizer.lua'
+		use 'winston0410/cmd-parser.nvim'
+        use 'winston0410/range-highlight.nvim'
+		use 'xiyaowong/nvim-transparent'
+
         
+		use 'themercorp/themer.lua'
         -- Language specific
         
         -- Latex
