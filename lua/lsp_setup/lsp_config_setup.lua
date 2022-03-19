@@ -8,7 +8,7 @@ M = {}
 -- Extra ^M may be generated after formatting
 -- %s used to remove ^M
 function _G.formatting() 
-    vim.lsp.buf.formatting_sync()
+    vim.lsp.buf.formatting_sync(nil, 2000)
     local status_ok, _ = pcall(vim.cmd [[ silent! %s/\r//g ]])
         if not status_ok then
             print('No newline character introduced')
