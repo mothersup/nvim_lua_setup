@@ -56,3 +56,6 @@ kmap('n', '<C-J>', ':SymbolsOutline<CR>', opts)
 
 -- lazygit
 kmap('n', '<Leader>gg', '<cmd>LazyGit<CR>', opts)
+
+-- null-ls
+kmap('n', '<leader>lf', '<cmd>lua formatting()<CR>', opts)

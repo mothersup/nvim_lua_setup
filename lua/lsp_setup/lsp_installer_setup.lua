@@ -10,10 +10,6 @@ lsp_installer.on_server_ready(function(server)
         capabilities = lsp_setup.capabilities,
     }
 	
-	if server.name == 'zeta_note' then
-		opts.cmd = { vim.fn.stdpath('data') .. [[/lsp_servers/zeta_note/zeta-note.exe]] }
-	end
-	
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
