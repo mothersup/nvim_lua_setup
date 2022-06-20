@@ -55,7 +55,7 @@ o.hidden = true
 o.splitbelow = true
 -- Setting shell to 'pwsh' will not work
 -- It is set to 'cmd' here and 'pwsh' in terminal plugins
-o.shell = 'cmd'
+o.shell = os.getenv('SHELL')
 
 -- Colors 
 o.termguicolors = true

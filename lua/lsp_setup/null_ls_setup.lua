@@ -8,6 +8,7 @@ local sources = {
 	formatting.autopep8,
 	formatting.isort,
 	diagnostics.flake8,
+	diagnostics.mypy,
 	-- latex
 	diagnostics.chktex,
 	formatting.latexindent.with({
@@ -26,12 +27,17 @@ null_ls.setup {
 
 -- Extra ^M may be generated after formatting
 -- %s used to remove ^M
+
+--[[
 function _G.formatting() 
     vim.lsp.buf.formatting_sync(nil, 2000)
-    local status_ok, _ = pcall(vim.cmd [[ silent! %s/\r//g ]])
-        if not status_ok then
-            print('No newline character introduced')
-            return
-        end
+	if not status_ok then
+		print('No newline character introduced')
+		return
+	end
 end
+--]]
+
+-- local status_ok, _ = pcall(vim.cmd [[ silent! %s/\r//g ]])
+
 

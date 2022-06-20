@@ -3,10 +3,8 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local bkmap = vim.api.nvim_buf_set_keymap
 local opts = { noremap = true, silent = true }
 
-M = {}
 
-
-local lsp_keymaps = function(client, bufnr)
+local lsp_keymaps = function(bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     
     bkmap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -20,7 +18,7 @@ local lsp_keymaps = function(client, bufnr)
     bkmap(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 end
 	
-M.on_attach = function(client, bufnr)
+local on_attach = function(client, bufnr)
 	client.resolved_capabilities.document_formatting = false
 	-- if client.config.flags then
 	-- 	client.config.flags.allow_incremental_sync	 = true
@@ -29,8 +27,9 @@ M.on_attach = function(client, bufnr)
 end
 
 local caps = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = cmp_nvim_lsp.update_capabilities(caps)
-
-return M
-
-
+local capabilities = cmp_nvim_lsp.update_capabilities(caps)
+	
+nvim_lsp['pyright'].setup({
+	on_attach = on_attach,
+	capabilities = capabilities
+})

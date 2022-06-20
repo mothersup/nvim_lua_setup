@@ -1,7 +1,7 @@
 -- Set language to Eng
 vim.cmd([[language en_US]])
 
-require('impatient')
+-- require('impatient')
 require('plugins')
 
 require('settings')
