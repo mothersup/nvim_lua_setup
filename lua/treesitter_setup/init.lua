@@ -3,7 +3,8 @@ local ts = require('nvim-treesitter.configs')
 ensure_installed_langs = {
 	'python', 
 	'latex',
-	'lua'
+	'lua',
+    'fish'
 }
 
 ts.setup {

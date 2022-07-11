@@ -7,7 +7,7 @@ local sources = {
 	-- python
 	formatting.autopep8,
 	formatting.isort,
-	diagnostics.flake8,
+	diagnostics.flake8.with({ cwd = vim.loop.cwd }),
 	diagnostics.mypy,
 	-- latex
 	diagnostics.chktex,
