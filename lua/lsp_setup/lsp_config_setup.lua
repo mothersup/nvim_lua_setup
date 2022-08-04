@@ -33,3 +33,9 @@ nvim_lsp['pyright'].setup({
 	on_attach = on_attach,
 	capabilities = capabilities
 })
+
+nvim_lsp['texlab'].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+    cmd = { vim.fn.stdpath('data') .. [[/mason/bin/texlab.cmd]] }
+})
