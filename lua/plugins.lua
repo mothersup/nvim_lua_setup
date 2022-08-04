@@ -182,7 +182,8 @@ return require('packer').startup({
 		}
 		use 'rebelot/kanagawa.nvim'
 		use 'muchzill4/doubletrouble'
-		
+		use { 'catppuccin/nvim', as = 'catppuccin' }
+
 		-- Colors related
 		use 'rktjmp/lush.nvim'
         use 'norcalli/nvim-colorizer.lua'
