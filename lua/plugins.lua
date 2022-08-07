@@ -198,6 +198,7 @@ return require('packer').startup({
         
         -- Latex
         -- use 'lervag/vimtex'
+        use 'frabjous/knap'
         
         -- Markdown 
         use 'davidgranstrom/nvim-markdown-preview'
