@@ -86,8 +86,10 @@ return require('packer').startup({
         use 'hrsh7th/cmp-buffer'
         use 'hrsh7th/cmp-path'
         use 'hrsh7th/cmp-cmdline'
-        use 'hrsh7th/cmp-vsnip'
-        use 'hrsh7th/vim-vsnip'
+        -- use 'hrsh7th/cmp-vsnip'
+        -- use 'hrsh7th/vim-vsnip'
+        use 'dcampos/nvim-snippy'
+        use 'dcampos/cmp-snippy'
         use 'lukas-reineke/cmp-under-comparator'
         -- use 'hrsh7th/cmp-nvim-lsp-signature-help'
 
