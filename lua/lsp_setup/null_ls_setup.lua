@@ -10,13 +10,17 @@ local sources = {
 	diagnostics.flake8.with({ cwd = vim.loop.cwd }),
 	diagnostics.mypy,
 	-- latex
-	diagnostics.chktex,
+	--[[
+    diagnostics.chktex,
 	formatting.latexindent.with({
 		args = { '-m', '-l' }
 	}),
+    ]]
 	-- markdown
+	--[[
 	diagnostics.markdownlint,
 	formatting.prettier 
+    --]]
 }
 
 null_ls.setup {
