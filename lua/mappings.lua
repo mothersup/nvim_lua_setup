@@ -84,3 +84,16 @@ kmap('n','<F7>', function() require("knap").toggle_autopreviewing() end)
 kmap('i','<F8>', function() require("knap").forward_jump() end)
 kmap('v','<F8>', function() require("knap").forward_jump() end)
 kmap('n','<F8>', function() require("knap").forward_jump() end)
+
+vim.api.nvim_create_autocmd(
+    'BufUnload',
+    {
+        pattern = "*",
+        callback = function()
+            if (vim.b.knap_viewerpid) then 
+                os.execute("pkill -f live-server")
+            end
+        end,
+        desc = "kill live-server upon exiting if knap is running"
+    }
+)
