@@ -86,6 +86,7 @@ return require('packer').startup({
         use 'hrsh7th/cmp-buffer'
         use 'hrsh7th/cmp-path'
         use 'hrsh7th/cmp-cmdline'
+        use 'kdheepak/cmp-latex-symbols'
         -- use 'hrsh7th/cmp-vsnip'
         -- use 'hrsh7th/vim-vsnip'
         use 'dcampos/nvim-snippy'
@@ -99,6 +100,7 @@ return require('packer').startup({
             run = ':TSUpdate'
         }
         use 'nvim-treesitter/nvim-treesitter-refactor'
+        use 'nvim-treesitter/nvim-treesitter-textobjects'
         use 'p00f/nvim-ts-rainbow'
 
         -- Status line
@@ -160,7 +162,7 @@ return require('packer').startup({
         }
         use 'famiu/bufdelete.nvim'
         use 'luukvbaal/stabilize.nvim'
-        use 'sunjon/shade.nvim'
+        -- use 'sunjon/shade.nvim'
         -- use 'moll/vim-bbye'
         
         -- Comments

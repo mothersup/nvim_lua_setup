@@ -1,0 +1,104 @@
+# premeables
+snippet tmplt Template
+	\\documentclass{${1:report}}
+
+	\usepackage[utf8]{inputenc}
+	\usepackage[a4paper]{geometry}
+	\usepackage{mathtools}
+	\usepackage{amssymb}
+	\usepackage[standard]{ntheorem}
+	\usepackage{physics}
+	\usepackage[capitalize]{cleveref}
+	\usepackage[inline]{enumitem}
+	\usepackage{fourier}
+	\usepackage[bb=txof]{mathalpha}
+	\usepackage{microtype}
+	% replace fourier's mathbb by original mathbb
+	\\let\\amsmathbb\\mathbb%
+	\\AtBeginDocument{
+		\\let\\mathbb\\relax
+		\\newcommand{\\mathbb}[1]{\\amsmathbb{#1}}
+	}
+	% new commands
+	\\newcommand{\\ve}[1]{\\boldsymbol{#1}}
+
+	\\begin{document}
+		$2
+	\\end{document}
+snippet nc newcommand
+	\\newcommand{\\${1:name}}[${2:n_args}]{${3:cmd}}$0
+snippet up usepackage
+	\\usepackage[${1:options}]{${2:package}}${0}
+snippet nthm newtheorem
+	\\newtheorem{${1:cmd}}{${2:name}}$0
+#
+# chapters
+snippet chapter
+	\\chapter{$1}
+	$0
+snippet chapter*
+	\\chapter*{$1}
+	$0
+snippet sec section
+	\\section{$1}
+	$0
+snippet sec* section*
+	\\section*{$1}
+	$0
+snippet subsec subsection
+	\\section{$1}
+	$0
+snippet subsec* subsection*
+	\\subsection*{$1}
+	$0
+#
+# text
+snippet tbf textbf
+	\\textbf{${1:text}}$0
+snippet tit textit
+	\\textit{${1:text}}$0
+#
+# math text
+snippet mbb mathbb
+	\\mathbb{${1:${VISUAL:text}}}${0}
+snippet mcal mathcal
+	\\mathcal{${1:{VISUAL:text}}}${0}
+#
+# enviroment related
+snippet bnv begin environment
+	\\begin{$1}
+		$0
+	\\end{$1}
+snippet balv begin align environment
+	\\begin{align*}
+		$0
+	\\end{align*}
+snippet bitv begin itemize
+	\\begin{itemize}
+		\\item
+	\\end{itemize}
+snippet bemv begin enumerate
+	\\begin{enumerate}
+		\\item
+	\\end{enumerate}
+snippet  bdefn begin definition
+	\\begin{Definition}
+		$0
+	\\end{Definition}
+snippet dm display math
+	\\[
+		$0
+	\\]
+snippet cases
+	\\begin{cases}
+		${1:expression}, &\\text{if } ${2:condition}, \\
+		${0:${VISUAL}}
+	\\end{cases}
+#
+# math operators
+snippet sum
+	\\sum _{${1:n=1}} ^{${2:\\infty}} $0
+snippet int
+	\\int ^{${1:\\infty}} _{${2:-\\infty}} {$3} \\, \\dd{$4} $0
+snippet phpl phantom plus
+	\\phantom{{}={}}
