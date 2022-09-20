@@ -72,15 +72,11 @@ cmp.setup({
         }, 
         {
             { name = 'buffer' },
+        },
+        {
+            { name = 'latex_symbols' }
         }
-    -- use lsp_signature instead
-    --[[
-    {
-        { name = 'nvim_lsp_signature_help' },
-    }
-    --]]
-    )
-    ,
+    ),
     
 	sorting = {
 		comparators = {
