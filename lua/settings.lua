@@ -2,6 +2,7 @@
 
 -- Setup alias
 local o = vim.o 
+local g = vim.g
 
 -- Set encoding to utf-8
 o.encoding = 'utf-8'
@@ -65,3 +66,6 @@ o.cursorcolumn = true
 
 -- More lines for error messages
 o.cmdheight = 2
+
+-- set LaTex as priority for .tex files
+g.tex_flavor = 'latex'

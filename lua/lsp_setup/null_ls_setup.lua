@@ -16,7 +16,10 @@ local sources = {
 	}),
 	-- markdown
 	diagnostics.markdownlint,
-	formatting.prettier 
+	formatting.prettier,
+    -- lua
+    diagnostics.selene,
+    formatting.stylua
 }
 
 null_ls.setup {
