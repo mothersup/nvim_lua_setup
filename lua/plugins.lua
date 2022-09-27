@@ -133,15 +133,7 @@ return require("packer").startup({
 		use("max397574/better-escape.nvim")
 		use("kylechui/nvim-surround")
 		use("yamatsum/nvim-cursorline")
-		-- blackCauldron7 is removed, use 'ul4ltz's distribution
-		--[[
-        use {
-            "blackCauldron7/surround.nvim",
-            config = function()
-            require"surround".setup {mappings_style = "sandwich"}
-        end
-        }
-        --]]
+        use 'AckslD/nvim-trevJ.lua'
 		-- use { 'tpope/vim-surround' }
 		--[[
         use { 
