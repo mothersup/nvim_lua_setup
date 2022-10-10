@@ -1,29 +1,48 @@
 # premeables
 snippet tmplt "Template"
-	\\documentclass{${1:report}}
+	% arara: xelatex: { synctex: yes, interaction: batchmode }
+	% arara: xelatex if found('log', 'undefined references')
+	\\documentclass[12pt, a4paper]{article}
 
-	\\usepackage[utf8]{inputenc}
-	\\usepackage[a4paper]{geometry}
-	\\usepackage{mathtools}
-	\\usepackage{amssymb}
+	\\usepackage[a4paper, margin=1in]{geometry}
 	\\usepackage[standard]{ntheorem}
+	\\usepackage{parskip}
+	\\usepackage{etoolbox}
 	\\usepackage{physics}
 	\\usepackage[capitalize]{cleveref}
 	\\usepackage[inline]{enumitem}
-	\\usepackage{fourier}
-	\\usepackage[bb=txof]{mathalpha}
+	% set font through fontspec
+	\\usepackage[bold-style=ISO]{fourier-otf}
+	\\setmathfont{Garamond-Math}[range=bb, Scale=MatchUppercase]
 	\\usepackage{microtype}
-	% replace fourier's mathbb by original mathbb
-	\\let\\amsmathbb\\mathbb%
-	\\AtBeginDocument{
-		\\let\\mathbb\\relax
-		\\newcommand{\\mathbb}[1]{\\amsmathbb{#1}}
-	}
-	% new commands
-	\\newcommand{\\ve}[1]{\\boldsymbol{#1}}
+	\\usepackage{pgfplots}
+	\\usepackage{subcaption}
+
+	\\makeatletter
+	\\newtheoremstyle{no_num_plain}%
+	{\\item[\\theorem@headerfont\hskip\labelsep
+					##2\theorem@separator]}%
+	{\\item[\\theorem@headerfont\hskip\labelsep
+					##3\theorem@separator]}%
+	\\makeatother
+
+	\\theoremstyle{no_num_plain}
+	\\theorembodyfont{\\upshape}
+	\\theoremheaderfont{\\Large}
+	\\theoremseparator{.}
+	\\theorempostskip{2\\baselineskip}
+	\\newtheorem{que}{Question}
+
+	\\newcommand{\\ve}[1]{\\symbf{#1}}
+	\\newcommand{\\simiid}{\\: \\sim _{\\text{i.i.d}} \\:}
+	\\newcommand{\\indi}{\\mbox{\\large $\\mathbb{1}$}}
+	\\newcommand{\\prob}{\\mathbb{P}}
+	\\newcommand{\\ept}{\\mathbb{E}}
+
+	\\DeclareMathOperator{\\Var}{Var}
 
 	\\begin{document}
-		$2
+		$0
 	\\end{document}
 snippet nc "newcommand"
 	\\newcommand{\\${1:name}}[${2:n_args}]{${3:cmd}}$0
@@ -60,9 +79,11 @@ snippet tit "textit"
 #
 # math text
 snippet mbb "mathbb"
-	\\mathbb{${1:${VISUAL:text}}}${0}
+	\\mathbb{$1}$0
 snippet mcal "mathcal"
-	\\mathcal{${1:{VISUAL:text}}}${0}
+	\\mathcal{$1}$0
+snippet mfrak "mathfrak"
+	\\mathfrak{$1}$0
 #
 # enviroment related
 snippet bnv "begin environment"
@@ -75,11 +96,11 @@ snippet balv "begin align environment"
 	\\end{align*}
 snippet bitv "begin itemize"
 	\\begin{itemize}
-		\\item
+		\\item $0
 	\\end{itemize}
 snippet bemv "begin enumerate"
 	\\begin{enumerate}
-		\\item
+		\\item $0
 	\\end{enumerate}
 snippet  bdefn "begin definition"
 	\\begin{Definition}

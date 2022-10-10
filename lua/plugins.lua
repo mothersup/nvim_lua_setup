@@ -193,7 +193,7 @@ return require("packer").startup({
 		use("winston0410/range-highlight.nvim")
 		use("xiyaowong/nvim-transparent")
 
-		use("themercorp/themer.lua")
+		-- use("themercorp/themer.lua")
 		-- Language specific
 
 		-- Latex
