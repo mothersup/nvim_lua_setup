@@ -1,6 +1,7 @@
 vim.g.knap_settings = {
 	-- mdtohtmlviewerlaunch = "min %outputfile%",
-	textopdf = "lualatex -synctex=1 -halt-on-error -interaction=batchm.setup()ode %docroot%",
+	-- textopdf = "lualatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
+    textopdf = "arara %docroot%",
 	htmltohtmlviewerlaunch = "live-server --quiet --browser=min --open=%outputfile% --watch=%outputfile% --wait=800",
 	mdtohtmlviewerlaunch = "live-server --quiet --browser=min --open=%outputfile% --watch=%outputfile% --wait=800",
 	textopdfviewerlaunch = [[sioyek.exe --inverse-search 'nvim --headless ]]
