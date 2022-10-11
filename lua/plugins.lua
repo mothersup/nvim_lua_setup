@@ -199,9 +199,9 @@ return require('packer').startup({
         -- Language specific
         
         -- Latex
-        -- use 'lervag/vimtex'
+        use 'lervag/vimtex'
         -- use 'frabjous/knap'
-        use 'C:/Users/shark/Documents/knap'
+        -- use 'C:/Users/shark/Documents/knap'
         
         -- Markdown 
         use 'davidgranstrom/nvim-markdown-preview'
