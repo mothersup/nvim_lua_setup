@@ -55,7 +55,12 @@ o.hidden = true
 o.splitbelow = true
 -- Setting shell to 'pwsh' will not work
 -- It is set to 'cmd' here and 'pwsh' in terminal plugins
-o.shell = os.getenv('SHELL')
+-- o.shell = os.getenv('SHELL')
+if vim.fn.has('win32') then 
+    o.shell = 'pwsh'
+else
+    o.shell = os.getenv('SHELL')
+end
 
 -- Colors 
 o.termguicolors = true
