@@ -57,7 +57,7 @@ kmap("n", "<Leader>gg", "<cmd>LazyGit<CR>")
 
 -- null-ls
 kmap({ "i", "n" }, "<leader>lf", function()
-	vim.lsp.buf.formatting_sync(nil, 2000)
+	vim.lsp.buf.format({async = true})
 	local status_ok, _ = pcall(vim.cmd([[ silent! %s/\r//g ]]))
 	if not status_ok then
 		print("No newline character introduced")

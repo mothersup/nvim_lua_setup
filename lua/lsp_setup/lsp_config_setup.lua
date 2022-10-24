@@ -19,7 +19,7 @@ local lsp_keymaps = function(bufnr)
 end
 	
 local on_attach = function(client, bufnr)
-	client.resolved_capabilities.document_formatting = false
+	-- client.resolved_capabilities.document_formatting = false
 	-- if client.config.flags then
 	-- 	client.config.flags.allow_incremental_sync	 = true
 	-- end 

@@ -2,7 +2,6 @@ vim.g.knap_settings = {
     textopdf = "arara %docroot%",
 	-- mdtohtmlviewerlaunch = "min %outputfile%",
 	-- textopdf = "lualatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
-    textopdf = "arara %docroot%",
 	-- textopdf = "lualatex -synctex=1 -halt-on-error -interaction=batchm.setup()ode %docroot%",
 	htmltohtmlviewerlaunch = "live-server --quiet --browser=min --open=%outputfile% --watch=%outputfile% --wait=800",
 	mdtohtmlviewerlaunch = "live-server --quiet --browser=min --open=%outputfile% --watch=%outputfile% --wait=800",
@@ -10,7 +9,7 @@ vim.g.knap_settings = {
     -- textopdfviewerlaunch = "Sioyek-x86_64.AppImage %outputfile%",
     -- textopdfviewerrefresh= "none",
     -- textopdfviewerlaunch = "sioyek --reuse-instance %outputfile%"
-	textopdfviewerlaunch = [[Sioyek-x86_64.AppImage ]]
+	textopdfviewerlaunch = [[sioyek.exe ]]
         .. [[--inverse-search 'nvim --headless]]
 		.. [[-es --cmd "lua]]
 		.. [[require("knaphelper").relayjump]]

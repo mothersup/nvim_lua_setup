@@ -3,7 +3,9 @@ require('snippy').setup({
     mappings = {
         is = {
             ['<Tab>'] = 'expand_or_advance',
-            ['<S-Tab>'] = 'previous',
+            -- ['<S-Tab>'] = 'previous',
+            ['<C-L>'] = 'next',
+            ['<C-H>'] = 'previous',
         },
         nx = {
             ['<leader>x'] = 'cut_text',

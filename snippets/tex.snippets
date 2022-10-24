@@ -5,7 +5,7 @@ snippet tmplt "Template"
 	\\documentclass[12pt, a4paper]{article}
 
 	\\usepackage[a4paper, margin=1in]{geometry}
-	\\usepackage[standard]{ntheorem}
+	\\usepackage[thmmarks]{ntheorem}
 	\\usepackage{parskip}
 	\\usepackage{etoolbox}
 	\\usepackage{physics}
@@ -13,7 +13,7 @@ snippet tmplt "Template"
 	\\usepackage[inline]{enumitem}
 	% set font through fontspec
 	\\usepackage[bold-style=ISO]{fourier-otf}
-	\\setmathfont{Garamond-Math}[range=bb, Scale=MatchUppercase]
+	\\setmathfont{TeX Gyre Bonum Math}[range=bb, Scale=MatchUppercase]
 	\\usepackage{microtype}
 	\\usepackage{pgfplots}
 	\\usepackage{subcaption}
@@ -32,6 +32,8 @@ snippet tmplt "Template"
 	\\theoremseparator{.}
 	\\theorempostskip{2\\baselineskip}
 	\\newtheorem{que}{Question}
+
+ 	\\newcommand{\\numbereq}{\\refstepcounter{equation}\\tag{\\theequation}}
 
 	\\newcommand{\\ve}[1]{\\symbf{#1}}
 	\\newcommand{\\simiid}{\\: \\sim _{\\text{i.i.d}} \\:}
@@ -117,8 +119,14 @@ snippet cases
 	\\end{cases}
 #
 # math operators
-snippet sum
+snippet sumi
+	\\sum _{${1:i=1}} ^{${2:n}} $0
+snippet suminfty
 	\\sum _{${1:n=1}} ^{${2:\\infty}} $0
+snippet prodi
+	\\prod _{${1:i=1}} ^{${2:n}} $0
+snippet prodinfty
+	\\prod _{${1:n=1}} ^{${2:\\infty}} $0
 snippet int
 	\\int ^{${1:\\infty}} _{${2:-\\infty}} {$3} \\, \\dd{$4} $0
 snippet pheq "phantom plus"
