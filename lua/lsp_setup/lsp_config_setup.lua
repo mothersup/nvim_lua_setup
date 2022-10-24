@@ -26,8 +26,9 @@ local on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 end
 
-local caps = vim.lsp.protocol.make_client_capabilities()
-local capabilities = cmp_nvim_lsp.update_capabilities(caps)
+-- local caps = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = cmp_nvim_lsp.update_capabilities(caps)
+local capabilities = cmp_nvim_lsp.default_capabilities()
 	
 nvim_lsp['pyright'].setup({
 	on_attach = on_attach,
