@@ -46,6 +46,14 @@ snippet tmplt "Template"
 	\\begin{document}
 		$0
 	\\end{document}
+snippet tmplt_bare "Template: Bare bone"
+	% arara: xelatex: { synctex: yes, interaction: batchmode }
+	% arara: xelatex if found('log', 'undefined references')
+	\\documentclass[12pt, a4paper]{article}
+
+	\\begin{document}
+		$0
+	\\end{document}
 snippet nc "newcommand"
 	\\newcommand{\\${1:name}}[${2:n_args}]{${3:cmd}}$0
 snippet up "usepackage"
