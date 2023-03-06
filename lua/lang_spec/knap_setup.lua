@@ -11,10 +11,11 @@ vim.g.knap_settings = {
     -- textopdfviewerlaunch = "Sioyek-x86_64.AppImage %outputfile%",
     -- textopdfviewerrefresh= "none",
     -- textopdfviewerlaunch = "sioyek --reuse-instance %outputfile%"
-    textopdfviewerlaunch = [[Sioyek-x86_64.AppImage ]]
+    -- textopdfviewerlaunch = [[Sioyek-x86_64.AppImage ]]
+    textopdfviewerlaunch = [[sioyek.exe ]]
         .. [[--inverse-search 'nvim --headless]]
         .. [[-es --cmd "lua]]
         .. [[require("knaphelper").relayjump]]
         .. [[("%servername%", "%1", %2,%3)' --new-instance %outputfile% ]],
-    textopdfforwardjump = "Sioyek-x86_64.AppImage --inverse-search 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%1'\"'\"',%2,%3)\"' --reuse-instance --forward-search-file %srcfile% --forward-search-line %line% %outputfile%",
+    textopdfforwardjump = "sioyek.exe --inverse-search 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%1'\"'\"',%2,%3)\"' --reuse-instance --forward-search-file %srcfile% --forward-search-line %line% %outputfile%",
 }

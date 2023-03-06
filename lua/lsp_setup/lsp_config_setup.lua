@@ -42,7 +42,17 @@ nvim_lsp['texlab'].setup({
     cmd = { vim.fn.stdpath('data') .. [[/mason/bin/]] .. texlab_name}
 })
 
-nvim_lsp['sumneko_lua'].setup({
+nvim_lsp['lua_ls'].setup({
+	on_attach = on_attach,
+	capabilities = capabilities
+})
+
+nvim_lsp['elmls'].setup({
+	on_attach = on_attach,
+	capabilities = capabilities
+})
+
+nvim_lsp['html'].setup({
 	on_attach = on_attach,
 	capabilities = capabilities
 })
