@@ -5,46 +5,43 @@ snippet tmplt "Template"
 	\\documentclass[12pt, a4paper]{article}
 
 	\\usepackage[a4paper, margin=1in]{geometry}
-	\\usepackage[thmmarks]{ntheorem}
+	\\usepackage{amsthm, thmtools}
+	% \\usepackage[thmmarks]{ntheorem}
 	\\usepackage{parskip}
 	\\usepackage{etoolbox}
 	\\usepackage{physics}
 	\\usepackage[capitalize]{cleveref}
 	\\usepackage[inline]{enumitem}
 	% set font through fontspec
-	\\usepackage[bold-style=ISO]{fourier-otf}
+	\\usepackage[bold-style=TeX, CharacterVariant = {3}]{fourier-otf}
 	\\setmathfont{TeX Gyre Bonum Math}[range=bb, Scale=MatchUppercase]
 	\\usepackage{microtype}
 	\\usepackage{pgfplots}
 	\\usepackage{subcaption}
 
-	\\makeatletter
-	\\newtheoremstyle{no_num_plain}%
-	{\\item[\\theorem@headerfont\hskip\labelsep
-					##2\theorem@separator]}%
-	{\\item[\\theorem@headerfont\hskip\labelsep
-					##3\theorem@separator]}%
-	\\makeatother
+	\\renewcommand \\qedsymbol{\\ensuremath{\\QED}}
 
-	\\theoremstyle{no_num_plain}
-	\\theorembodyfont{\\upshape}
-	\\theoremheaderfont{\\Large}
-	\\theoremseparator{.}
-	\\theorempostskip{2\\baselineskip}
-	\\newtheorem{que}{Question}
+	\\declaretheoremstyle[
+		spaceabove = \\baselineskip,
+		spacebelow = \\baselineskip,
+		headfont = \\Large \\bfseries,
+		bodyfont = \\normalfont
+	]{que}
 
- 	\\newcommand{\\numbereq}{\\refstepcounter{equation}\\tag{\\theequation}}
+	\\declaretheoremstyle[
+		spaceabove = \\baselineskip,
+		spacebelow = \\baselineskip,
+		headfont = \\bfseries,
+		bodyfont = \\normalfont
+	]{normal}
+	\\declaretheorem[title = {}, style = que]{que}
+	\\declaretheorem[style = normal]{lemma}
 
+	\\newcommand{\\numbereq}{\\refstepcounter{equation}\\tag{\\theequation}}
 	\\newcommand{\\ve}[1]{\\symbf{#1}}
-	\\newcommand{\\simiid}{\\: \\sim _{\\text{i.i.d}} \\:}
-	\\newcommand{\\indi}{\\mbox{\\large $\\mathbb{1}$}}
-	\\newcommand{\\prob}{\\mathbb{P}}
-	\\newcommand{\\ept}{\\mathbb{E}}
-
-	\\DeclareMathOperator{\\Var}{Var}
 
 	\\begin{document}
-		$0
+	$0
 	\\end{document}
 snippet tmplt_bare "Template: Bare bone"
 	% arara: xelatex: { synctex: yes, interaction: batchmode }
@@ -112,6 +109,10 @@ snippet bemv "begin enumerate"
 	\\begin{enumerate}
 		\\item $0
 	\\end{enumerate}
+snippet bgtv "begin gather"
+	\\begin{gather*}
+	$0
+	\\end{gather*}
 snippet  bdefn "begin definition"
 	\\begin{Definition}
 		$0
@@ -149,6 +150,12 @@ snippet c... "cdots" A
 	\\cdots $0
 snippet ve "vector"
 	\\ve{$1} $0
+snippet partial "partial"
+	\\partial $0
+snippet overline "overline"
+	\\overline{$0} $1
+snippet sqfr "sqrt frac"
+	\\sqrt{\\frac{$0}{$1}}
 #
 # others
 snippet x1...iid "X_1, \dots, X_n ~ iid"
