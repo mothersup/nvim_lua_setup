@@ -1,12 +1,11 @@
 # premeables
 snippet tmplt "Template"
-	% arara: xelatex: { synctex: yes, interaction: batchmode }
-	% arara: xelatex if found('log', 'undefined references')
+	% arara: lualatex: { synctex: yes, interaction: batchmode }
+	% arara: lualatex if found('log', 'undefined references')
 	\\documentclass[12pt, a4paper]{article}
 
 	\\usepackage[a4paper, margin=1in]{geometry}
 	\\usepackage{amsthm, thmtools}
-	% \\usepackage[thmmarks]{ntheorem}
 	\\usepackage{parskip}
 	\\usepackage{etoolbox}
 	\\usepackage{physics}
@@ -126,6 +125,13 @@ snippet cases
 		${1:expression}, &\\text{if } ${2:condition}, \\
 		${0:${VISUAL}}
 	\\end{cases}
+snippet incfig "include graphics"
+	\\begin{figure}[${1:!ht}]
+		\\includegraphics[width = 0.5 \\linewidth]{$2}
+		\\caption{$3}
+		\\label{$4}
+	\\end{figure}
+	$0
 #
 # math operators
 snippet sumi
