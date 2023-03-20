@@ -1,3 +1,6 @@
+local settings = require("lang_spec.lang_spec_settings")
+local pdf_viewer = settings.pdf_viewer
+
 vim.g.knap_settings = {
     textopdf = "arara %docroot%",
     -- mdtohtmlviewerlaunch = "min %outputfile%",
@@ -7,15 +10,17 @@ vim.g.knap_settings = {
         .. [[--quiet --browser=firefox --open=%outputfile% ]]
         .. [[--watch=%outputfile% --wait=800]],
     mdtohtmlviewerlaunch = "live-server --quiet --browser=firefox --open=%outputfile% --watch=%outputfile% --wait=800",
-    -- textopdfviewerlaunch = "evince %outputfile%",
-    -- textopdfviewerlaunch = "Sioyek-x86_64.AppImage %outputfile%",
-    -- textopdfviewerrefresh= "none",
-    -- textopdfviewerlaunch = "sioyek --reuse-instance %outputfile%"
-    -- textopdfviewerlaunch = [[Sioyek-x86_64.AppImage ]]
-    textopdfviewerlaunch = [[sioyek.exe ]]
-        .. [[--inverse-search 'nvim --headless]]
+    textopdfviewerlaunch = pdf_viewer
+        .. [[ --inverse-search 'nvim --headless]]
         .. [[-es --cmd "lua]]
-        .. [[require("knaphelper").relayjump]]
-        .. [[("%servername%", "%1", %2,%3)' --new-instance %outputfile% ]],
-    textopdfforwardjump = "sioyek.exe --inverse-search 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%1'\"'\"',%2,%3)\"' --reuse-instance --forward-search-file %srcfile% --forward-search-line %line% %outputfile%",
+        .. [[require("knaphelper").relayjump("%servername%", "%1", %2,%3)"']]
+        .. [[--new-window %outputfile%]],
+    textopdfforwardjump = pdf_viewer
+        .. [[ --inverse-search 'nvim --headless]]
+        .. [[-es --cmd "lua]]
+        .. [[require("knaphelper").relayjump("%servername%", "%1", %2,%3)"']]
+        .. [[--new-window]]
+        .. [[--forward-search-file %srcfile% --forward-search-line %line%]]
+        .. [[%outputfile%]]
+        -- "sioyek.exe --inverse-search 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%1'\"'\"',%2,%3)\"' --reuse-instance --forward-search-file %srcfile% --forward-search-line %line% %outputfile%",
 }

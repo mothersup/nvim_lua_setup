@@ -1,3 +1,5 @@
 autoload
 plugin
+unused
+lua/lang_spec.lang_spec_settings
 .git
