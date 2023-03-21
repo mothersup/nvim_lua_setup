@@ -127,9 +127,28 @@ snippet cases
 	\\end{cases}
 snippet incfig "include graphics"
 	\\begin{figure}[${1:!ht}]
+		\\centering
 		\\includegraphics[width = 0.5 \\linewidth]{$2}
 		\\caption{$3}
 		\\label{$4}
+	\\end{figure}
+	$0
+snippet sub2incfig "subfigure with 2 include graphics"
+	\\begin{figure}[${1:!ht}]
+		\\centering
+		\\begin{subfigure}{0.45\\linewidth}
+			\\centering
+			\\includegraphics[width = \\linewidth]{$2}
+			\\caption{$3}
+		\\end{subfigure}
+		\\hfill
+		\\begin{subfigure}{0.45\\linewidth}
+			\\centering
+			\\includegraphics[width = \\linewidth]{$4}
+			\\caption{$5}
+		\\end{subfigure}
+		\\caption{$6}
+		\\label{$7}
 	\\end{figure}
 	$0
 #
@@ -144,6 +163,24 @@ snippet prodinfty
 	\\prod _{${1:n=1}} ^{${2:\\infty}} $0
 snippet int
 	\\int ^{${1:\\infty}} _{${2:-\\infty}} {$3} \\, \\dd{$4} $0
+snippet ints "Integral over set"
+	\\int _{${1:\Omega}} {$2} \\, \\dd{$3} $0
+snippet int2 "Double integral"
+	\\int ^{${1:\\infty}} _{${2:-\\infty}} {
+		\\int ^{${3:\\infty}} _{${4:-\\infty}} {
+			$5 
+		} \\, \\dd{$6}
+	} \\, \\dd{$7} $0
+snippet iint "Double integral area form"
+	\\iint _{${1:D}} {$2} \\, \\dd{${3:A}} $0
+snippet int3 "Triple integral"
+	\\int ^{${1:\\infty}} _{${2:-\\infty}} {
+		\\int ^{${3:\\infty}} _{${4:-\\infty}} {
+			\\int ^{${5:\\infty}} _{${6:-\\infty}} {
+				$7
+			} \\, \\dd{$8}
+		} \\, \\dd{$9}
+	} \\, \\dd{$10} $0
 snippet pheq "phantom plus"
 	\\phantom{{}={}}
 snippet __ "subscript" A
