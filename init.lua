@@ -29,10 +29,3 @@ require('mappings')
 --vim.cmd [[highlight Normal guibg=NONE ctermbg=NONE]]
 vim.cmd [[highlight NonText guibg=NONE ctermbg=NONE]]
 vim.cmd [[highlight SignColumn guibg=NONE ctermbg=NONE]]
-
--- require('zen_mode_setup')
--- require('nvim-web-devicons').setup()
--- require('mini_setup')
--- require('glow_setup')
--- require('feline_setup')
--- require('toggleterm_setup')
