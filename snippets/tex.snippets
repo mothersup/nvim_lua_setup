@@ -112,6 +112,10 @@ snippet bgtv "begin gather"
 	\\begin{gather*}
 	$0
 	\\end{gather*}
+snippet bmtv "begin matrix"
+	\\begin{bmatrix}
+		$0
+	\\end{bmatrix}
 snippet  bdefn "begin definition"
 	\\begin{Definition}
 		$0
@@ -125,6 +129,8 @@ snippet cases
 		${1:expression}, &\\text{if } ${2:condition}, \\
 		${0:${VISUAL}}
 	\\end{cases}
+#
+# Figures and graphics
 snippet incfig "include graphics"
 	\\begin{figure}[${1:!ht}]
 		\\centering
@@ -151,6 +157,18 @@ snippet sub2incfig "subfigure with 2 include graphics"
 		\\label{$7}
 	\\end{figure}
 	$0
+snippet tikztmplt "tikzpicture template"
+	\\begin{tikzpicture}
+		\\begin{axis}[
+				axis lines = center,
+				xlabel = {$x$},
+				ylabel = {$y$},
+				ticks = none,
+			]
+			\\node at (axis cs: -0.3, 0.5) {${0}$};
+			$0
+		\\end{axis}
+	\\end{tikzpicture}
 #
 # math operators
 snippet sumi
