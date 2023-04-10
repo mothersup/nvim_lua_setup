@@ -12,7 +12,7 @@ snippet tmplt "Template"
 	\\usepackage[capitalize]{cleveref}
 	\\usepackage[inline]{enumitem}
 	% set font through fontspec
-	\\usepackage[bold-style=TeX, CharacterVariant = {3}]{fourier-otf}
+	\\usepackage[bold-style = TeX, CharacterVariant = {3}]{fourier-otf}
 	\\setmathfont{TeX Gyre Bonum Math}[range=bb, Scale=MatchUppercase]
 	\\usepackage{microtype}
 	\\usepackage{pgfplots}
@@ -24,16 +24,19 @@ snippet tmplt "Template"
 		spaceabove = \\baselineskip,
 		spacebelow = \\baselineskip,
 		headfont = \\Large \\bfseries,
-		bodyfont = \\normalfont
+		bodyfont = \\normalfont,
+		postheadspace = 0.5em
 	]{que}
 
 	\\declaretheoremstyle[
 		spaceabove = \\baselineskip,
 		spacebelow = \\baselineskip,
 		headfont = \\bfseries,
-		bodyfont = \\normalfont
+		bodyfont = \\normalfont,
+		postheadspace = 0.5em
 	]{normal}
 	\\declaretheorem[title = {}, style = que]{que}
+	\\declaretheorem[style = normal]{theorem}
 	\\declaretheorem[style = normal]{lemma}
 
 	\\newcommand{\\numbereq}{\\refstepcounter{equation}\\tag{\\theequation}}
@@ -182,7 +185,7 @@ snippet prodinfty
 snippet int
 	\\int ^{${1:\\infty}} _{${2:-\\infty}} {$3} \\, \\dd{$4} $0
 snippet ints "Integral over set"
-	\\int _{${1:\Omega}} {$2} \\, \\dd{$3} $0
+	\\int _{${1:\\Omega}} {$2} \\, \\dd{$3} $0
 snippet int2 "Double integral"
 	\\int ^{${1:\\infty}} _{${2:-\\infty}} {
 		\\int ^{${3:\\infty}} _{${4:-\\infty}} {
@@ -199,6 +202,8 @@ snippet int3 "Triple integral"
 			} \\, \\dd{$8}
 		} \\, \\dd{$9}
 	} \\, \\dd{$10} $0
+snippet iiint "Triple integral volume form"
+	\\iiint _{${1:B}} {$2} \\, \\dd{${3:V}} $0
 snippet pheq "phantom plus"
 	\\phantom{{}={}}
 snippet __ "subscript" A
