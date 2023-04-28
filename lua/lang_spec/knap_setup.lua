@@ -10,16 +10,17 @@ vim.g.knap_settings = {
         .. [[--quiet --browser=firefox --open=%outputfile% ]]
         .. [[--watch=%outputfile% --wait=800]],
     mdtohtmlviewerlaunch = "live-server --quiet --browser=firefox --open=%outputfile% --watch=%outputfile% --wait=800",
+    -- textopdfviewerlaunch = pdf_viewer .. [[ %outputfile]],
     textopdfviewerlaunch = pdf_viewer
-        .. [[ --inverse-search 'nvim --headless]]
-        .. [[-es --cmd "lua]]
-        .. [[require("knaphelper").relayjump("%servername%", "%1", %2,%3)"']]
-        .. [[--new-window %outputfile%]],
+        .. [[ --inverse-search 'nvim --headless ]]
+        .. [[-es --cmd "lua ]]
+        .. [[require("knaphelper").relayjump("%servername%", "%1", %2,%3)"' ]]
+        .. [[--new-window %outputfile% ]],
     textopdfforwardjump = pdf_viewer
         .. [[ --inverse-search 'nvim --headless]]
         .. [[-es --cmd "lua]]
         .. [[require("knaphelper").relayjump("%servername%", "%1", %2,%3)"']]
-        .. [[--new-window]]
+        .. [[--new-instance]]
         .. [[--forward-search-file %srcfile% --forward-search-line %line%]]
         .. [[%outputfile%]]
         -- "sioyek.exe --inverse-search 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%1'\"'\"',%2,%3)\"' --reuse-instance --forward-search-file %srcfile% --forward-search-line %line% %outputfile%",

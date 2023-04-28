@@ -168,7 +168,6 @@ snippet tikztmplt "tikzpicture template"
 				ylabel = {$y$},
 				ticks = none,
 			]
-			\\node at (axis cs: -0.3, 0.5) {${0}$};
 			$0
 		\\end{axis}
 	\\end{tikzpicture}
@@ -183,27 +182,32 @@ snippet prodi
 snippet prodinfty
 	\\prod _{${1:n=1}} ^{${2:\\infty}} $0
 snippet int
-	\\int ^{${1:\\infty}} _{${2:-\\infty}} {$3} \\, \\dd{$4} $0
+	\\int ^{${1:\\infty}} _{${2:-\\infty}} {
+		$3
+	} \\, \\dd{$4} $0
 snippet ints "Integral over set"
-	\\int _{${1:\\Omega}} {$2} \\, \\dd{$3} $0
+	\\int _{${1:\\Omega}} {
+		$2
+	} \\, \\dd{$3} $0
 snippet int2 "Double integral"
-	\\int ^{${1:\\infty}} _{${2:-\\infty}} {
-		\\int ^{${3:\\infty}} _{${4:-\\infty}} {
+	\\int ^{${1:\\infty}} _{${2:-\\infty}} 
+	\\int ^{${3:\\infty}} _{${4:-\\infty}} {
 			$5 
-		} \\, \\dd{$6}
-	} \\, \\dd{$7} $0
+	} \\, \\dd{$6} \\dd{$7} $0
 snippet iint "Double integral area form"
-	\\iint _{${1:D}} {$2} \\, \\dd{${3:A}} $0
+	\\iint _{${1:D}} {
+		$2
+	} \\, \\dd{${3:A}} $0
 snippet int3 "Triple integral"
-	\\int ^{${1:\\infty}} _{${2:-\\infty}} {
-		\\int ^{${3:\\infty}} _{${4:-\\infty}} {
-			\\int ^{${5:\\infty}} _{${6:-\\infty}} {
+	\\int ^{${1:\\infty}} _{${2:-\\infty}} 
+	\\int ^{${3:\\infty}} _{${4:-\\infty}}
+	\\int ^{${5:\\infty}} _{${6:-\\infty}} {
 				$7
-			} \\, \\dd{$8}
-		} \\, \\dd{$9}
-	} \\, \\dd{$10} $0
+	} \\, \\dd{$8} \\dd{$9} \\dd{$10} $0
 snippet iiint "Triple integral volume form"
-	\\iiint _{${1:B}} {$2} \\, \\dd{${3:V}} $0
+	\\iiint _{${1:B}} {
+		$2
+	} \\, \\dd{${3:V}} $0
 snippet pheq "phantom plus"
 	\\phantom{{}={}}
 snippet __ "subscript" A
