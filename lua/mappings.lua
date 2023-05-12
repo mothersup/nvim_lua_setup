@@ -2,7 +2,7 @@
 local kmap = vim.keymap.set
 -- local opts = { noremap = true, silent = true }
 
-kmap("i", "jk", "<Esc>")
+-- kmap("i", "jk", "<Esc>")
 kmap("n", "<Esc><Esc>", "<cmd>noh<CR>")
 -- Saving
 kmap("i", "<C-s>", "<Esc><cmd>w<CR>")

@@ -131,6 +131,7 @@ return require("packer").startup({
 		use("lukas-reineke/indent-blankline.nvim")
 		use("windwp/nvim-autopairs")
 		use("max397574/better-escape.nvim")
+		-- use("max397574/better-escape.nvim")
 		use("kylechui/nvim-surround")
 		use("yamatsum/nvim-cursorline")
         use 'AckslD/nvim-trevJ.lua'
