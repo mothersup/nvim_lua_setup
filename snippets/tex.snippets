@@ -5,18 +5,33 @@ snippet tmplt "Template"
 	\\documentclass[12pt, a4paper]{article}
 
 	\\usepackage[a4paper, margin=1in]{geometry}
-	\\usepackage{amsthm, thmtools}
+	\\usepackage{microtype}
 	\\usepackage{parskip}
-	\\usepackage{etoolbox}
+	\\usepackage{amsthm, thmtools}
 	\\usepackage{physics}
+	\\usepackage[
+		colorlinks = true, 
+		linkcolor = cyan, 
+		bookmarks = true
+	]{hyperref}
+	\\usepackage[open, openlevel = 2, atend, numbered]{bookmark}
 	\\usepackage[capitalize]{cleveref}
 	\\usepackage[inline]{enumitem}
 	% set font through fontspec
-	\\usepackage[bold-style = TeX, CharacterVariant = {3}]{fourier-otf}
-	\\setmathfont{TeX Gyre Bonum Math}[range=bb, Scale=MatchUppercase]
-	\\usepackage{microtype}
+	\\usepackage[
+		bold-style = TeX, CharacterVariant = {3}
+	]{fourier-otf}
+	\\setmathfont{New Computer Modern Math}[
+		range = bb, 
+		Scale = MatchUppercase
+	]
+	\\setmathfont{STIX Two Math}[
+		range = cal, 
+		Scale = MatchUppercase
+	]
 	\\usepackage{pgfplots}
 	\\usepackage{subcaption}
+	\\usepackage{float}
 
 	\\renewcommand \\qedsymbol{\\ensuremath{\\QED}}
 
@@ -35,9 +50,11 @@ snippet tmplt "Template"
 		bodyfont = \\normalfont,
 		postheadspace = 0.5em
 	]{normal}
+
 	\\declaretheorem[title = {}, style = largeHead]{que}
 	\\declaretheorem[style = normal]{theorem}
 	\\declaretheorem[style = normal]{lemma}
+	\\declaretheorem[style = normal]{example}
 
 	\\newcommand{\\numbereq}{\\refstepcounter{equation}\\tag{\\theequation}}
 	\\newcommand{\\ve}[1]{\\symbf{#1}}
@@ -46,9 +63,17 @@ snippet tmplt "Template"
 	$0
 	\\end{document}
 snippet tmplt_bare "Template: Bare bone"
-	% arara: xelatex: { synctex: yes, interaction: batchmode }
-	% arara: xelatex if found('log', 'undefined references')
+	% arara: lualatex: { synctex: yes, interaction: batchmode }
+	% arara: lualatex if found('log', 'undefined references')
 	\\documentclass[12pt, a4paper]{article}
+
+	\\begin{document}
+		$0
+	\\end{document}
+snippet subfile 
+	% arara: lualatex: { synctex: yes, interaction: batchmode }
+	% arara: lualatex if found('log', 'undefined references')
+	\\documentclass[$1]{subfiles}
 
 	\\begin{document}
 		$0
