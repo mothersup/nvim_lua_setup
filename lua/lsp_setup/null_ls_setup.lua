@@ -15,8 +15,10 @@ local sources = {
 		args = { '-m', '-l' }
 	}),
 	-- markdown
-	diagnostics.markdownlint,
-	formatting.prettier,
+	-- diagnostics.markdownlint,
+	-- formatting.prettier,
+    diagnostics.textlint,
+    formatting.textlint,
     -- lua
     diagnostics.selene,
     formatting.stylua

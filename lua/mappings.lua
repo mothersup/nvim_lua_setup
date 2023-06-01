@@ -27,11 +27,9 @@ kmap("n", "[b", "<cmd>BufferLineCyclePrev<CR>")
 kmap("n", "<Leader>nf", function()
 	require("neogen").generate()
 end)
--- local opts = { noremap = true, silent = true }
--- vim.api.nvim_set_keymap('n', '<Leader>nf', ':lua require('neogen').generate()<CR>', opts)
 
--- Markdown-preview
-kmap("n", "<Leader>mp", "<cmd>MarkdownPreview<CR>")
+-- peek
+kmap("n", "<Leader>mp", "<cmd>PeekOpen<CR>")
 
 -- Telescope
 kmap("n", "<Leader>ff", "<cmd>Telescope find_files<CR>")
@@ -43,11 +41,6 @@ kmap("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>")
 kmap("n", "<Leader>xx", "<cmd>TroubleToggle<CR>")
 kmap("n", "<Leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>")
 kmap("n", "<Leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>")
---[[
-kmap('n', '<Leader>xl', '<cmd>TroubleToggle loclist<cr>', opts )
-kmap('n', '<Leader>xq', '<cmd>TroubleToggle quickfix<cr>', opts)
-kmap('n', 'gR', '<cmd>TroubleToggle lsp_references<cr>', opts)
---]]
 
 -- symbols-outline
 kmap("n", "<C-J>", ":SymbolsOutline<CR>")
@@ -121,6 +114,6 @@ vim.api.nvim_create_autocmd("BufUnload", {
 })
 
 -- trevJ
-kmap("n", "<leader>j", function()
+kmap("n", "<leader>tj", function()
 	require("trevj").format_at_cursor()
 end)
