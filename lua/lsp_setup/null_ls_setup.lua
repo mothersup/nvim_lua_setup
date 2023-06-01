@@ -12,37 +12,19 @@ local sources = {
 	-- latex
 	diagnostics.chktex,
 	formatting.latexindent.with({
-		args = { '-m', '-l' }
+		args = { "-m", "-l" },
 	}),
 	-- markdown
-	-- diagnostics.markdownlint,
-	-- formatting.prettier,
-    diagnostics.textlint,
-    formatting.textlint,
-    -- lua
-    diagnostics.selene,
-    formatting.stylua
+	diagnostics.markdownlint,
+	formatting.prettier,
+	-- diagnostics.textlint,
+	-- formatting.textlint,
+	-- lua
+	diagnostics.selene,
+	formatting.stylua,
 }
 
-null_ls.setup {
+null_ls.setup({
 	debug = false,
-	sources = sources
-}
-
-
--- Extra ^M may be generated after formatting
--- %s used to remove ^M
-
---[[
-function _G.formatting() 
-    vim.lsp.buf.formatting_sync(nil, 2000)
-	if not status_ok then
-		print('No newline character introduced')
-		return
-	end
-end
---]]
-
--- local status_ok, _ = pcall(vim.cmd [[ silent! %s/\r//g ]])
-
-
+	sources = sources,
+})
