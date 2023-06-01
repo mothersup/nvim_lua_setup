@@ -50,7 +50,7 @@ return require("packer").startup({
 
 		-- LSP, installer
 		use("williamboman/mason.nvim")
-        -- use("/mnt/d/scripts/mason.nvim")
+		-- use("/mnt/d/scripts/mason.nvim")
 		use("williamboman/mason-lspconfig.nvim")
 		use("neovim/nvim-lspconfig")
 
@@ -72,11 +72,11 @@ return require("packer").startup({
         }
 		use 'simrat39/symbols-outline.nvim'
         use {
-            'ray-x/navigator.lua', 
+            'ray-x/navigator.lua',
             requires = {
-                'ray-x/guihua.lua', 
+                'ray-x/guihua.lua',
                 run = 'cd lua/fzy && make'
-            }, 
+            },
 			config = function()
 				require('navigator').setup({
 					lsp_installer = true,
@@ -133,12 +133,12 @@ return require("packer").startup({
 		-- use("max397574/better-escape.nvim")
 		use("kylechui/nvim-surround")
 		use("yamatsum/nvim-cursorline")
-        use 'AckslD/nvim-trevJ.lua'
+		use("AckslD/nvim-trevJ.lua")
 		-- use { 'tpope/vim-surround' }
 		--[[
-        use { 
-            'echasnovski/mini.nvim', 
-            branch = 'stable' 
+        use {
+            'echasnovski/mini.nvim',
+            branch = 'stable'
         }
 		--]]
 		-- use 'McAuleyPenney/tidy.nvim'
@@ -191,8 +191,8 @@ return require("packer").startup({
 		use("norcalli/nvim-colorizer.lua")
 		use("winston0410/cmd-parser.nvim")
 		use("winston0410/range-highlight.nvim")
-		use("xiyaowong/nvim-transparent")
-
+		-- use("xiyaowong/nvim-transparent")
+		--
 		-- use("themercorp/themer.lua")
 		-- Language specific
 
@@ -202,6 +202,10 @@ return require("packer").startup({
 
 		-- Markdown
 		use("davidgranstrom/nvim-markdown-preview")
+		use({
+			"toppair/peek.nvim",
+			run = "deno task --quiet build:fast",
+		})
 		-- use 'ellisonleao/glow.nvim'
 
 		-- Automatically set up your configuration after cloning packer.nvim

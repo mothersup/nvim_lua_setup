@@ -99,7 +99,7 @@ snippet sec* "section*"
 	\\section*{$1}
 	$0
 snippet subsec "subsection"
-	\\section{$1}
+	\\subsection{$1}
 	$0
 snippet subsec* "subsection*"
 	\\subsection*{$1}
@@ -198,11 +198,11 @@ snippet tikztmplt "tikzpicture template"
 	\\end{tikzpicture}
 #
 # math operators
-snippet sumi
+snippet sum
 	\\sum _{${1:i=1}} ^{${2:n}} $0
 snippet suminfty
-	\\sum _{${1:n=1}} ^{${2:\\infty}} $0
-snippet prodi
+	\\sum _{${1:n=0}} ^{${2:\\infty}} $0
+snippet prod
 	\\prod _{${1:i=1}} ^{${2:n}} $0
 snippet prodinfty
 	\\prod _{${1:n=1}} ^{${2:\\infty}} $0
@@ -246,7 +246,7 @@ snippet partial "partial"
 snippet overline "overline"
 	\\overline{$0} $1
 snippet sqfr "sqrt frac"
-	\\sqrt{\\frac{$0}{$1}}
+	\\sqrt{\\frac{$1}{$2}} $0
 #
 # others
 snippet x1...iid "X_1, \dots, X_n ~ iid"
