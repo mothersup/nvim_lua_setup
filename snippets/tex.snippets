@@ -6,9 +6,11 @@ snippet tmplt "Template"
 
 	\\usepackage[a4paper, margin=1in]{geometry}
 	\\usepackage{microtype}
+	\\usepackage{xparse}
 	\\usepackage{parskip}
 	\\usepackage{amsthm, thmtools}
-	\\usepackage{physics}
+	\\usepackage[def-file = diffcoeff5]{diffcoeff}
+	\\usepackage{mathtools}
 	\\usepackage[
 		colorlinks = true, 
 		linkcolor = cyan, 
@@ -22,11 +24,7 @@ snippet tmplt "Template"
 		bold-style = TeX, CharacterVariant = {3}
 	]{fourier-otf}
 	\\setmathfont{New Computer Modern Math}[
-		range = bb, 
-		Scale = MatchUppercase
-	]
-	\\setmathfont{STIX Two Math}[
-		range = cal, 
+		range = {bb, cal}, 
 		Scale = MatchUppercase
 	]
 	\\usepackage{pgfplots}
@@ -58,6 +56,22 @@ snippet tmplt "Template"
 
 	\\newcommand{\\numbereq}{\\refstepcounter{equation}\\tag{\\theequation}}
 	\\newcommand{\\ve}[1]{\\symbf{#1}}
+
+	\\DeclarePairedDelimiter{\\pbrc}{\\lparen}{\\rparen}
+	\\DeclarePairedDelimiter{\\sbrc}{\\lbrack}{\\rbrack}
+	\\DeclarePairedDelimiter{\\cbrc}{\\lbrace}{\\rbrace}
+	\\DeclarePairedDelimiter{\\abrc}{\\langle}{\\rangle}
+	\\DeclarePairedDelimiter{\\abs}{\\lvert}{\\rvert}
+	\\DeclarePairedDelimiter{\\norm}{\\lVert}{\\rVert}
+
+	\\NewDocumentCommand{\\qand}{}{\\quad \\textrm{and} \\quad}
+	\\NewDocumentCommand{\\qor}{}{\\quad \\textrm{or} \\quad}
+	\\NewDocumentCommand{\\qif}{}{\\quad \\textrm{if} \\quad}
+	\\NewDocumentCommand{\\qas}{}{\\quad \\textrm{as} \\quad}
+	\\NewDocumentCommand{\\qc}{}{, \\quad}
+	\\NewDocumentCommand{\\qqimplies}{}{\\quad \\implies \\quad}
+	\\NewDocumentCommand{\\qqiff}{}{\\quad \\iff \\quad}
+	\\NewDocumentCommand{\\qqforall}{}{\\quad \\forall \\quad}
 
 	\\begin{document}
 	$0
@@ -209,30 +223,30 @@ snippet prodinfty
 snippet int
 	\\int ^{${1:\\infty}} _{${2:-\\infty}} {
 		$3
-	} \\, \\dd{$4} $0
+	} \\, \\dl{$4} $0
 snippet ints "Integral over set"
 	\\int _{${1:\\Omega}} {
 		$2
-	} \\, \\dd{$3} $0
+	} \\, \\dl{$3} $0
 snippet int2 "Double integral"
 	\\int ^{${1:\\infty}} _{${2:-\\infty}} 
 	\\int ^{${3:\\infty}} _{${4:-\\infty}} {
 			$5 
-	} \\, \\dd{$6} \\dd{$7} $0
+	} \\, \\dl{$6} \\dl{$7} $0
 snippet iint "Double integral area form"
 	\\iint _{${1:D}} {
 		$2
-	} \\, \\dd{${3:A}} $0
+	} \\, \\dl{${3:A}} $0
 snippet int3 "Triple integral"
 	\\int ^{${1:\\infty}} _{${2:-\\infty}} 
 	\\int ^{${3:\\infty}} _{${4:-\\infty}}
 	\\int ^{${5:\\infty}} _{${6:-\\infty}} {
 				$7
-	} \\, \\dd{$8} \\dd{$9} \\dd{$10} $0
+	} \\, \\dl{$8} \\dl{$9} \\dl{$10} $0
 snippet iiint "Triple integral volume form"
 	\\iiint _{${1:B}} {
 		$2
-	} \\, \\dd{${3:V}} $0
+	} \\, \\dl{${3:V}} $0
 snippet pheq "phantom plus"
 	\\phantom{{}={}}
 snippet __ "subscript" A
