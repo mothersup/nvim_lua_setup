@@ -3,8 +3,8 @@ vim.cmd([[language en_US]])
 
 -- require('impatient')
 require('plugins')
-
 require('settings')
+require('filetypes')
 
 require('colors_setup')
 require('startup_setup')

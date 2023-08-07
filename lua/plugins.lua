@@ -50,7 +50,6 @@ return require("packer").startup({
 
 		-- LSP, installer
 		use("williamboman/mason.nvim")
-		-- use("/mnt/d/scripts/mason.nvim")
 		use("williamboman/mason-lspconfig.nvim")
 		use("neovim/nvim-lspconfig")
 
@@ -61,29 +60,10 @@ return require("packer").startup({
 			requires = "kyazdani42/nvim-web-devicons",
 		})
 		use("kosayoda/nvim-lightbulb")
-		use("j-hui/fidget.nvim")
+		-- use("j-hui/fidget.nvim")
 		use("ray-x/lsp_signature.nvim")
 		use("rmagatti/goto-preview")
 		use("onsails/lspkind-nvim")
-		--[[
-        use {
-            'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-            as = 'lsp_lines.nvim'
-        }
-		use 'simrat39/symbols-outline.nvim'
-        use {
-            'ray-x/navigator.lua',
-            requires = {
-                'ray-x/guihua.lua',
-                run = 'cd lua/fzy && make'
-            },
-			config = function()
-				require('navigator').setup({
-					lsp_installer = true,
-				})
-			end,
-        }
-		--]]
 
 		-- autocomplete and snippets
 		use("hrsh7th/nvim-cmp")
@@ -92,12 +72,9 @@ return require("packer").startup({
 		use("hrsh7th/cmp-path")
 		use("hrsh7th/cmp-cmdline")
 		use("kdheepak/cmp-latex-symbols")
-		-- use 'hrsh7th/cmp-vsnip'
-		-- use 'hrsh7th/vim-vsnip'
 		use("dcampos/nvim-snippy")
 		use("dcampos/cmp-snippy")
 		use("lukas-reineke/cmp-under-comparator")
-		-- use 'hrsh7th/cmp-nvim-lsp-signature-help'
 
 		-- Treesitter
 		use({
@@ -113,11 +90,8 @@ return require("packer").startup({
 			"hoob3rt/lualine.nvim",
 			requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		})
-		-- use 'famiu/feline.nvim'
 
 		-- Startup
-		-- Faster startup speed
-		use("lewis6991/impatient.nvim")
 		use({
 			"startup-nvim/startup.nvim",
 			requires = {
@@ -125,12 +99,10 @@ return require("packer").startup({
 				"nvim-lua/plenary.nvim",
 			},
 		})
-		-- use 'henriquehbr/nvim-startup.lua'
 
 		-- Editing
 		use("lukas-reineke/indent-blankline.nvim")
 		use("windwp/nvim-autopairs")
-		-- use("max397574/better-escape.nvim")
 		use("kylechui/nvim-surround")
 		use("yamatsum/nvim-cursorline")
 		use("AckslD/nvim-trevJ.lua")
@@ -141,8 +113,6 @@ return require("packer").startup({
             branch = 'stable'
         }
 		--]]
-		-- use 'McAuleyPenney/tidy.nvim'
-		-- use 'folke/zen-mode.nvim'
 
 		-- File explorer
 		use({
@@ -159,8 +129,6 @@ return require("packer").startup({
 		})
 		use("famiu/bufdelete.nvim")
 		use("luukvbaal/stabilize.nvim")
-		-- use 'sunjon/shade.nvim'
-		-- use 'moll/vim-bbye'
 
 		-- Comments
 		use("numToStr/Comment.nvim")
@@ -174,7 +142,6 @@ return require("packer").startup({
 
 		-- Terminal
 		use("numToStr/FTerm.nvim")
-		-- use 'akinsho/toggleterm.nvim'
 
 		-- Color themes
 		use("navarasu/onedark.nvim")
@@ -191,14 +158,17 @@ return require("packer").startup({
 		use("norcalli/nvim-colorizer.lua")
 		use("winston0410/cmd-parser.nvim")
 		use("winston0410/range-highlight.nvim")
-		-- use("xiyaowong/nvim-transparent")
 		--
 		-- use("themercorp/themer.lua")
 		-- Language specific
 
 		-- Latex
-		-- use 'lervag/vimtex'
+		-- use("lervag/vimtex")
 		use("frabjous/knap")
+		use({
+			"f3fora/nvim-texlabconfig",
+			build = "go build",
+		})
 
 		-- Markdown
 		-- use("davidgranstrom/nvim-markdown-preview")
