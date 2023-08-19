@@ -3,7 +3,7 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local bkmap = vim.api.nvim_buf_set_keymap
 local opts = { noremap = true, silent = true }
 
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("INFO")
 
 local lsp_keymaps = function(bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")

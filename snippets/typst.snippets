@@ -12,5 +12,17 @@ snippet ^^ "math superscript" A
 snippet sum "summation"
 	sum _(${1:n = 1}) ^(${2:oo}) $0 
 
+snippet intab "integration over [a, b]"
+	integral ^(${1:oo}) _(${2:-oo}) thin upright(d) ${3:x} $0
+
+snippet ints "integration over set"
+	integral _(${1:X}) $2 thin upright(d) ${3:x} $0
+
 snippet to "arrow to"
 	arrow.r
+
+snippet tto "double to"
+	arrows.rr
+
+snippet abrc "angle brackets"
+	angle.l $1 angle.r $0
