@@ -160,7 +160,7 @@ return require('packer').startup({
         }
         use 'famiu/bufdelete.nvim'
         use 'luukvbaal/stabilize.nvim'
-        use 'sunjon/shade.nvim'
+        -- use 'sunjon/shade.nvim'
         -- use 'moll/vim-bbye'
         
         -- Comments

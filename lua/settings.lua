@@ -57,11 +57,11 @@ o.splitbelow = true
 -- It is set to 'cmd' here and 'pwsh' in terminal plugins
 -- o.shell = os.getenv('SHELL')
 if vim.fn.has('win32') then 
-    o.shell = 'pwsh'
+    o.shell = 'cmd'
+    -- o.shellcmdflag = '-c'
 else
     o.shell = os.getenv('SHELL')
 end
-
 -- Colors 
 o.termguicolors = true
 
