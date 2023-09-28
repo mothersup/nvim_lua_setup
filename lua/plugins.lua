@@ -83,7 +83,7 @@ return require("packer").startup({
 		})
 		use("nvim-treesitter/nvim-treesitter-refactor")
 		use("nvim-treesitter/nvim-treesitter-textobjects")
-		use("p00f/nvim-ts-rainbow")
+		use("HiPhish/rainbow-delimiters.nvim")
 
 		-- Status line
 		use({
