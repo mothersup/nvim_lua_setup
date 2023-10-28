@@ -13,7 +13,7 @@ snippet sum "summation"
 	sum _(${1:n = 1}) ^(${2:oo}) $0 
 
 snippet intab "integration over [a, b]"
-	integral ^(${1:oo}) _(${2:-oo}) thin dif ${3:x} $0
+	integral ^(${1:oo}) _(${2:-oo}) $3 thin dif ${4:x} $0
 
 snippet ints "integration over set"
 	integral _(${1:X}) $2 thin dif ${3:x} $0
