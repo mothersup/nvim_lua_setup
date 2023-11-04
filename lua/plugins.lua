@@ -1,192 +1,157 @@
--- Check if packer is installed
-local execute = vim.api.nvim_command
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-	packer_bootstrap =
-		vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 
--- vim.cmd [[packadd packer.nvim]]
+vim.opt.rtp:prepend(lazypath)
 
-vim.api.nvim_exec(
-	[[
-    augroup Packer
-        autocmd!
-        autocmd BufWritePost plugins.lua PackerCompile
-    augroup end
-]],
-	false
-)
+plugins = {
+	-- Plenary and Popup
+	"nvim-lua/plenary.nvim",
+	"nvim-lua/popup.nvim",
 
-return require("packer").startup({
-	function(use)
-		-- Manage packer itself
-		use("wbthomason/packer.nvim")
+	-- Icons
+	"kyazdani42/nvim-web-devicons",
 
-		-- Plenary and pop_up
-		use("nvim-lua/plenary.nvim")
-		use("nvim-lua/popup.nvim")
-
-		-- Icons
-		-- use 'ryanoasis/vim-devicons'
-		use("kyazdani42/nvim-web-devicons")
-
-		-- use 'joshdick/onedark.vim'
-		-- use {'sonph/onehalf', rtp = 'vim/'}
-
-		-- Telescope and fzf
-		use({
-			"nvim-telescope/telescope.nvim",
-			requires = {
-				{ "nvim-lua/plenary.nvim" },
-				{ "kdheepak/lazygit.nvim" },
-			},
-		})
-		use({
-			"nvim-telescope/telescope-fzf-native.nvim",
-			run = "make",
-		})
-
-		-- LSP, installer
-		use("williamboman/mason.nvim")
-		use("williamboman/mason-lspconfig.nvim")
-		use("neovim/nvim-lspconfig")
-
-		-- LSP related
-		use("jose-elias-alvarez/null-ls.nvim")
-		use({
-			"folke/trouble.nvim",
-			requires = "kyazdani42/nvim-web-devicons",
-		})
-		use("kosayoda/nvim-lightbulb")
-		-- use("j-hui/fidget.nvim")
-		use("ray-x/lsp_signature.nvim")
-		use("rmagatti/goto-preview")
-		use("onsails/lspkind-nvim")
-
-		-- autocomplete and snippets
-		use("hrsh7th/nvim-cmp")
-		use("hrsh7th/cmp-nvim-lsp")
-		use("hrsh7th/cmp-buffer")
-		use("hrsh7th/cmp-path")
-		use("hrsh7th/cmp-cmdline")
-		use("kdheepak/cmp-latex-symbols")
-		use("dcampos/nvim-snippy")
-		use("dcampos/cmp-snippy")
-		use("lukas-reineke/cmp-under-comparator")
-
-		-- Treesitter
-		use({
-			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdate",
-		})
-		use("nvim-treesitter/nvim-treesitter-refactor")
-		use("nvim-treesitter/nvim-treesitter-textobjects")
-		use("HiPhish/rainbow-delimiters.nvim")
-
-		-- Status line
-		use({
-			"hoob3rt/lualine.nvim",
-			requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		})
-
-		-- Startup
-		use({
-			"startup-nvim/startup.nvim",
-			requires = {
-				"nvim-telescope/telescope.nvim",
-				"nvim-lua/plenary.nvim",
-			},
-		})
-
-		-- Editing
-		use("lukas-reineke/indent-blankline.nvim")
-		use("windwp/nvim-autopairs")
-		use("kylechui/nvim-surround")
-		use("yamatsum/nvim-cursorline")
-		use("AckslD/nvim-trevJ.lua")
-		-- use { 'tpope/vim-surround' }
-		--[[
-        use {
-            'echasnovski/mini.nvim',
-            branch = 'stable'
-        }
-		--]]
-
-		-- File explorer
-		use({
-			"kyazdani42/nvim-tree.lua",
-			requires = {
-				"kyazdani42/nvim-web-devicons", -- optional, for file icon
-			},
-		})
-
-		-- Buffers (Tab)
-		use({
-			"akinsho/bufferline.nvim",
-			requires = "kyazdani42/nvim-web-devicons",
-		})
-		use("famiu/bufdelete.nvim")
-		use("luukvbaal/stabilize.nvim")
-
-		-- Comments
-		use("numToStr/Comment.nvim")
-		use({
-			"danymat/neogen",
-			requires = "nvim-treesitter/nvim-treesitter",
-		})
-
-		-- lazygit
-		use("kdheepak/lazygit.nvim")
-
-		-- Terminal
-		use("numToStr/FTerm.nvim")
-
-		-- Color themes
-		use("navarasu/onedark.nvim")
-		use({
-			"frenzyexists/aquarium-vim",
-			branch = "develop",
-		})
-		use("rebelot/kanagawa.nvim")
-		use("muchzill4/doubletrouble")
-		use({ "catppuccin/nvim", as = "catppuccin" })
-
-		-- Colors related
-		use("rktjmp/lush.nvim")
-		use("norcalli/nvim-colorizer.lua")
-		use("winston0410/cmd-parser.nvim")
-		use("winston0410/range-highlight.nvim")
-		--
-		-- use("themercorp/themer.lua")
-		-- Language specific
-
-		-- Latex
-		-- use("lervag/vimtex")
-		use("frabjous/knap")
-		use({
-			"f3fora/nvim-texlabconfig",
-			build = "go build",
-		})
-
-		-- Markdown
-		-- use("davidgranstrom/nvim-markdown-preview")
-		use({
-			"toppair/peek.nvim",
-			run = "deno task --quiet build:fast",
-		})
-		-- use 'ellisonleao/glow.nvim'
-
-		-- Automatically set up your configuration after cloning packer.nvim
-		-- Put this at the end after all plugins
-		if packer_bootstrap then
-			require("packer").sync()
-		end
-	end,
-	config = {
-		display = {
-			open_fn = require("packer.util").float,
+	-- Telescope and fzf
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "kdheepak/lazygit.nvim" },
 		},
 	},
-})
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+	},
+
+	-- LSP, installer
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
+
+	-- LSP related
+	"nvimtools/none-ls.nvim",
+	{
+		"folke/trouble.nvim",
+		dependencies = "kyazdani42/nvim-web-devicons",
+	},
+	"kosayoda/nvim-lightbulb",
+	"ray-x/lsp_signature.nvim",
+	"rmagatti/goto-preview",
+	"onsails/lspkind-nvim",
+
+	-- autocomplete and snippets
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"kdheepak/cmp-latex-symbols",
+	"dcampos/nvim-snippy",
+	"dcampos/cmp-snippy",
+	"lukas-reineke/cmp-under-comparator",
+
+	-- Treesitter
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+	},
+	"nvim-treesitter/nvim-treesitter-refactor",
+	"nvim-treesitter/nvim-treesitter-textobjects",
+	"HiPhish/rainbow-delimiters.nvim",
+
+	-- Status line
+	{
+		"hoob3rt/lualine.nvim",
+		dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
+	},
+
+	-- Startup
+	{
+		"startup-nvim/startup.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+	},
+
+	-- Editing
+	"lukas-reineke/indent-blankline.nvim",
+	"windwp/nvim-autopairs",
+	"kylechui/nvim-surround",
+	"yamatsum/nvim-cursorline",
+	"AckslD/nvim-trevJ.lua",
+
+	-- File explorer
+	{
+		"kyazdani42/nvim-tree.lua",
+		dependencies = {
+			-- optional, for file icon
+			"kyazdani42/nvim-web-devicons",
+		},
+	},
+
+	-- Buffers (Tab)
+	{
+		"akinsho/bufferline.nvim",
+		dependencies = "kyazdani42/nvim-web-devicons",
+	},
+	"famiu/bufdelete.nvim",
+	"luukvbaal/stabilize.nvim",
+
+	-- Comments
+	"numToStr/Comment.nvim",
+	{
+		"danymat/neogen",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+	},
+
+	-- lazygit
+	"kdheepak/lazygit.nvim",
+
+	-- Terminal
+	"numToStr/FTerm.nvim",
+
+	-- Color themes
+	"navarasu/onedark.nvim",
+	{
+		"frenzyexists/aquarium-vim",
+		branch = "develop",
+	},
+	"rebelot/kanagawa.nvim",
+	"muchzill4/doubletrouble",
+	{ "catppuccin/nvim", name = "catppuccin" },
+
+	-- Colors related
+	"rktjmp/lush.nvim",
+	"norcalli/nvim-colorizer.lua",
+	"winston0410/cmd-parser.nvim",
+	"winston0410/range-highlight.nvim",
+
+	-- Language specific
+	-- Latex
+	{
+		"f3fora/nvim-texlabconfig",
+		build = "go build",
+		ft = "tex",
+	},
+	-- Markdown
+	-- "davidgranstrom/nvim-markdown-preview",
+	{
+		"toppair/peek.nvim",
+		build = "deno task --quiet build:fast",
+		ft = "md",
+	},
+}
+
+require("lazy").setup(plugins)

@@ -1,6 +1,6 @@
 local ts = require('nvim-treesitter.configs')
 
-ensure_installed_langs = {
+local ensure_installed_langs = {
     'python',
     'latex',
     'lua',
