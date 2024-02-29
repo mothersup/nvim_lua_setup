@@ -5,15 +5,14 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
 	-- python
-	formatting.autopep8,
 	formatting.isort,
-	diagnostics.flake8.with({ cwd = vim.loop.cwd }),
+	-- formatting.ruff_lsp,
 	diagnostics.mypy,
+	-- diagnostics.ruff_lsp,
 	-- latex
-	diagnostics.chktex,
-	formatting.latexindent.with({
-		args = { "-m", "-l" },
-	}),
+	-- formatting.latexindent.with({
+	-- 	args = { "-m", "-l" },
+	-- }),
 	-- markdown
 	diagnostics.markdownlint,
 	formatting.prettier,
