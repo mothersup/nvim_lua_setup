@@ -79,9 +79,9 @@ nvim_lsp["html"].setup({
 })
 
 nvim_lsp["typst_lsp"].setup({
-    -- settings = {
-    --     exportPdf = "onSave"
-    -- },
+    settings = {
+        exportPdf = "onSave"
+    },
 	on_attach = on_attach,
 	capabilities = capabilities,
 })

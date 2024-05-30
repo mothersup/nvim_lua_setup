@@ -1,5 +1,6 @@
 -- File for storing simple keymaps
 local kmap = vim.keymap.set
+local api = vim.api
 -- local opts = { noremap = true, silent = true }
 
 -- kmap("i", "jk", "<Esc>")
@@ -117,3 +118,13 @@ vim.api.nvim_create_autocmd("BufUnload", {
 kmap("n", "<leader>tj", function()
 	require("trevj").format_at_cursor()
 end)
+
+api.nvim_create_user_command('Wab', function ()
+    cur_buf = api.nvim_get_current_buf()
+    cur_pos = api.nvim_win_get_cursor(0)
+    api.nvim_command('bufdo w')
+    api.nvim_win_set_buf(0, cur_buf)
+    api.nvim_win_set_cursor(0, cur_pos)
+    -- print(cur_buf)
+    -- print(cur_pos)
+end, {} )
