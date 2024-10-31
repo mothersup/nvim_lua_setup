@@ -5,10 +5,10 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
 	-- python
-	formatting.isort,
+	-- formatting.isort,
+ --    formatting.yapf,
 	-- formatting.ruff_lsp,
 	diagnostics.mypy,
-	-- diagnostics.ruff_lsp,
 	-- latex
 	-- formatting.latexindent.with({
 	-- 	args = { "-m", "-l" },

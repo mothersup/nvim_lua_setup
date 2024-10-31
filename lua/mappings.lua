@@ -25,8 +25,14 @@ kmap("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
 kmap("n", "]b", "<cmd>BufferLineCycleNext<CR>")
 kmap("n", "[b", "<cmd>BufferLineCyclePrev<CR>")
 
+-- neogen
 kmap("n", "<Leader>nf", function()
 	require("neogen").generate()
+end)
+
+-- tiny-code-action
+kmap("n", "<Leader>ca", function()
+    require("tiny-code-action").code_action()
 end)
 
 -- peek
@@ -37,11 +43,17 @@ kmap("n", "<Leader>ff", "<cmd>Telescope find_files<CR>")
 kmap("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>")
 kmap("n", "<Leader>fb", "<cmd>Telescope buffers<CR>")
 kmap("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>")
+kmap("n", "<Leader>fr", "<cmd>Telescope resume<CR>")
 
 -- Trouble
-kmap("n", "<Leader>xx", "<cmd>TroubleToggle<CR>")
-kmap("n", "<Leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>")
-kmap("n", "<Leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>")
+kmap("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle<CR>")
+kmap("n", "<Leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>")
+kmap("n", "<Leader>cs", "<cmd>Trouble symbols toggle focus=false<CR>")
+kmap("n", "<Leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<CR>")
+kmap("n", "<Leader>xl", "<cmd>Trouble loclist toggle<CR>")
+kmap("n", "<Leader>xQ", "<cmd>Trouble qflist toggle<CR>")
+-- kmap("n", "<Leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>")
+-- kmap("n", "<Leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>")
 
 -- symbols-outline
 kmap("n", "<C-J>", ":SymbolsOutline<CR>")
@@ -57,51 +69,6 @@ kmap({ "i", "n" }, "<leader>lf", function()
 		print("No newline character introduced")
 		return
 	end
-end)
-
--- knap
--- F5 processes the document once, and refreshes the view
-kmap("i", "<F5>", function()
-	require("knap").process_once()
-end)
-kmap("v", "<F5>", function()
-	require("knap").process_once()
-end)
-kmap("n", "<F5>", function()
-	require("knap").process_once()
-end)
-
--- F6 closes the viewer application, and allows settings to be reset
-kmap("i", "<F6>", function()
-	require("knap").close_viewer()
-end)
-kmap("v", "<F6>", function()
-	require("knap").close_viewer()
-end)
-kmap("n", "<F6>", function()
-	require("knap").close_viewer()
-end)
-
--- F7 toggles the auto-processing on and off
-kmap("i", "<F7>", function()
-	require("knap").toggle_autopreviewing()
-end)
-kmap("v", "<F7>", function()
-	require("knap").toggle_autopreviewing()
-end)
-kmap("n", "<F7>", function()
-	require("knap").toggle_autopreviewing()
-end)
-
--- F8 invokes a SyncTeX forward search, or similar, where appropriate
-kmap("i", "<F8>", function()
-	require("knap").forward_jump()
-end)
-kmap("v", "<F8>", function()
-	require("knap").forward_jump()
-end)
-kmap("n", "<F8>", function()
-	require("knap").forward_jump()
 end)
 
 vim.api.nvim_create_autocmd("BufUnload", {
