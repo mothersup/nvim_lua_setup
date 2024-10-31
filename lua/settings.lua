@@ -23,6 +23,7 @@ o.shiftwidth = 4
 o.expandtab = true
 o.autoindent = true
 o.smartindent = true
+o.list = true
 
 -- Display relative line number 
 o.number = true

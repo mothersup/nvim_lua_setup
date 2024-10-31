@@ -1,6 +1,7 @@
 -- File for storing simple keymaps
 local kmap = vim.keymap.set
 local api = vim.api
+local fs = vim.fs
 -- local opts = { noremap = true, silent = true }
 
 -- kmap("i", "jk", "<Esc>")
@@ -32,7 +33,7 @@ end)
 
 -- tiny-code-action
 kmap("n", "<Leader>ca", function()
-    require("tiny-code-action").code_action()
+	require("tiny-code-action").code_action()
 end)
 
 -- peek
@@ -63,7 +64,7 @@ kmap("n", "<Leader>gg", "<cmd>LazyGit<CR>")
 
 -- null-ls
 kmap({ "i", "n" }, "<leader>lf", function()
-	vim.lsp.buf.format({async = true})
+	vim.lsp.buf.format({ async = true })
 	local status_ok, _ = pcall(vim.cmd([[ silent! %s/\r//g ]]))
 	if not status_ok then
 		print("No newline character introduced")
@@ -86,12 +87,33 @@ kmap("n", "<leader>tj", function()
 	require("trevj").format_at_cursor()
 end)
 
-api.nvim_create_user_command('Wab', function ()
-    cur_buf = api.nvim_get_current_buf()
-    cur_pos = api.nvim_win_get_cursor(0)
-    api.nvim_command('bufdo w')
-    api.nvim_win_set_buf(0, cur_buf)
-    api.nvim_win_set_cursor(0, cur_pos)
-    -- print(cur_buf)
-    -- print(cur_pos)
-end, {} )
+-- typst: autocompile using arara-like directives
+api.nvim_create_autocmd("BufWritePost", {
+	pattern = { "*.typ" },
+	callback = function()
+		-- check if the first line is of the form '// main: file'
+		local first_line = api.nvim_buf_get_lines(0, 0, 1, false)[1]
+		local current_file = api.nvim_buf_get_name(0)
+		local _, _, filename = string.find(first_line, "//%s*main:%s*(.*%.typ)")
+		if filename then
+			-- print(vim.fs.joinpath(vim.fs.dirname(current_file), filename))
+			local main_file = fs.joinpath(fs.dirname(current_file), filename)
+			local cmd = "typst c " .. main_file
+			io.popen(cmd)
+		else
+			-- print(current_file)
+			local cmd = "typst c " .. current_file
+			io.popen(cmd)
+		end
+	end,
+})
+
+api.nvim_create_user_command("Wab", function()
+	cur_buf = api.nvim_get_current_buf()
+	cur_pos = api.nvim_win_get_cursor(0)
+	api.nvim_command("bufdo w")
+	api.nvim_win_set_buf(0, cur_buf)
+	api.nvim_win_set_cursor(0, cur_pos)
+	-- print(cur_buf)
+	-- print(cur_pos)
+end, {})
